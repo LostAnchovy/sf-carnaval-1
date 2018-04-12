@@ -1,6 +1,12 @@
 .festTitle {
-    background-image: url("/assets/images/orange40.png");
-    background-size: cover;
+    // background-image: url("/assets/images/orange40.png");\
+    background-image: url("/assets/images/homeSplash.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
+    padding-top: 30px;
 }
+h1{
+    font-size: 1.5em;
+}
+  

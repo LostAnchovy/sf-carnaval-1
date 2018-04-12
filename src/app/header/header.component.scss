@@ -1,34 +1,55 @@
 @import "../../variables";
 
+@media only screen and (max-width: 1000px) {
+  .logobox {
+    background-image: url("/assets/images/topMobile2.jpg") !important;
+  }
+  nav {
+    background-image: url("/assets/images/navMobile2.jpg") !important;
+  }
+}
+
 #logo {
-    height: 300px;
-    width: auto;
+  height: 300px;
+  width: auto;
 }
+
 .logobox {
-    height: 420px;
-    width: 100%;
-    background-image: url("/assets/images/40Banner.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+  height: 200px;
+  width: 100%; 
+  background-image: url("/assets/images/topDesk.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
-.jumbotron {
-    position: relative;
-    background-image: url("/assets/images/crowd.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: 14%;
-    height: 380px;
-    color: $white;
-    text-shadow: 3px 2px $red;
-}
+
+// .jumbotron {
+//     position: relative;
+//     background-image: url("/assets/images/crowd.jpg");
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     padding: 14%;
+//     height: 380px;
+//     color: $white;
+//     text-shadow: 3px 2px $red;
+// }
+
 nav {
-    background-image: url("/assets/images/navText2.jpg");
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: center top;
+  background-image: url("/assets/images/navDesk.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: scroll;
 }
+
 .nav-link {
-    color: black;
+  color: black;
 }
+
+img {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+}
+

@@ -1,39 +1,26 @@
 <div class="container">
   <!-- <div class="col-sm-6"> -->
   <div class="row justify-content-center">
-    <h3 class="text-center ptHD">Public Transit</h3>
+    <h3 class="ptHD text-center">Public Transit</h3>
   </div>
-  <div class="card-deck">
-
-    <!-- <div class="col-12 col-sm-12 col-md-6 text-center"> -->
-    <div class="card mb-2">
-      <div class="imageContainer">
-        <div class="imageHolder">
-          <img class="card-img-top customImage" src="../assets/images/BART_route.png" alt="filler img">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 text-center" *ngFor="let direction of publicTransitDirections; let i = index">
+      <div class="card mb-2">
+        <!-- <br *ngIf="i==2"> -->
+        <div class="imageContainer">
+          <div class="imageHolder">
+            <img class="card-img-top customImage" src={{direction.img}} alt="filler img">
+          </div>
+        </div>
+        <h5 class="card-header">{{direction.header}}</h5>
+        <div class="card-body">
+          <p class="card-text">{{direction.text}}</p>
         </div>
       </div>
-      <h5 class="card-header">Via BART: 24th St</h5>
-      <div class="card-body">
-        <p class="card-text">Head north on Mission St toward 24th St. Turn right at 24th st, and main entrance is on your left at Harrison st.</p>
-      </div>
-      <!-- </div> -->
     </div>
-
-    <!-- <div class="col-12 col-sm-12 col-md-6 text-center"> -->
-    <div class="card">
-      <div class="imageContainer">
-        <div class="imageHolder">
-
-          <img class="card-img-top customImage" src="../assets/images/MUNI.png" alt="filler img">
-        </div>
-      </div>
-      <h5 class="card-header">Via MUNI: 16th and Harrison</h5>
-      <div class="card-body">
-        <p class="card-text">Busses stop at both the North(Route 22, 33 & 55) and South(Route 48) end of the Venue</p>
-      </div>
-    </div>
-    <!-- </div> -->
   </div>
+
+  <!-- //////////////driving directions ////////////////// -->
   <hr>
   <div class="row justify-content-center">
     <h3 class="text-center driveHD">Driving</h3>
@@ -45,40 +32,46 @@
   <div class="text-center">
     <a class="text-muted nav-item" href="https://goo.gl/maps/HCzCE59hijK2" target="_blank">North Entrance</a>
   </div>
+
   <div class="row">
-    <div class="col-12 col-sm-12 col-md-6 text-center">
-      <div class="card">
-        <img class="card-img-top" src="../assets/images/South_Drive.png" alt="filler img">
-        <h5 class="card-header">From South via 101</h5>
+    <div class="col-12 col-sm-12 col-md-6 text-center" *ngFor="let direction of drivingDirections; let i = index">
+      <div class="card mb-2">
+        <!-- <br *ngIf="i==2"> -->
+        <div class="imageContainer">
+          <div class="imageHolder">
+            <img class="card-img-top customImage" src={{direction.img}} alt="filler img">
+          </div>
+        </div>
+        <h5 class="card-header">{{direction.header}}</h5>
         <div class="card-body">
-          <p class="card-text">From 101N take the Cesar Chavez St/ Portero St exit. Follow signs to Cesar Chavez St and Turn right at Harrison
-            St. </p>
+          <p class="card-text">{{direction.text}}</p>
         </div>
       </div>
     </div>
-    <div class="col-12 col-sm-12 col-md-6 text-center">
-      <div class="card">
-        <img class="card-img-top" src="../assets/images/North101_Drive.png" alt="filler img">
-        <h5 class="card-header">From North via 101</h5>
-        <div class="card-body">
-          <p class="card-text">From 101S take the Harrison St Exit and continue for about 0.3 miles.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-12 col-md-6 text-center">
-      <div class="card">
-        <img class="card-img-top" src="../assets/images/North80_Drive.png" alt="filler img">
-        <h5 class="card-header">From North via 80</h5>
-        <div class="card-body">
-          <p class="card-text">From 80S take the Civic Center Exit and merge onto Harrison St. Follow Harrison St for about 0.7 miles.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- </div> -->
-    <!-- sunday column div -->
   </div>
-  <!-- end of largest row div -->
+  <!-- ////////////// Parking directions ////////////////// -->
+  <hr>
+  <div class="row justify-content-center">
+    <h3 class="text-center driveHD">Parking</h3>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 text-center" *ngFor="let direction of parkingDirections; let i = index">
+      <div class="card mb-2">
+        <!-- <br *ngIf="i==2"> -->
+        <div class="imageContainer">
+          <div class="imageHolder">
+            <a href={{direction.link}}>
+              <img class="card-img-top customImage" src={{direction.img}} alt="filler img">
+            </a>
+          </div>
+        </div>
+        <h5 class="card-header">
+          <a href={{direction.link}}>{{direction.header}}</a>
+        </h5>
+        <div class="card-body">
+          <p class="card-text">{{direction.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- end of container div -->
-

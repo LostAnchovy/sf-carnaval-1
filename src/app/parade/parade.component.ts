@@ -15,7 +15,7 @@ export class ParadeComponent implements OnInit {
 
   // Component attributes
   // Map theme
-  @Input() style = 'mapbox://styles/mapbox/streets-v8';
+  @Input() style = 'mapbox://styles/anilad/cjftyar1a02qm2ro5mqtigv4v';
 
   // Ask for location and fly to it
   @Input() geolocation = false;
