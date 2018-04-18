@@ -1063,20 +1063,20 @@ export class MapComponent implements OnInit {
 
         if (visibility === 'visible') {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-          var temp = document.getElementById(clickedLayer)
-          temp.checked=false;
+          // var temp = document.getElementById(clickedLayer)
+          // temp.checked=false;
           this.className = '';
         } else {
           this.className = 'active';
-          var temp = document.getElementById(clickedLayer)
-          temp.checked=true;
+          // var temp = document.getElementById(clickedLayer)
+          // temp.checked=true;
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
         }
       };
-      input.addEventListener('change', function(e) {
-        map.setLayoutProperty(input.id, 'visibility',
-            e.target.checked ? 'visible' : 'none');
-    });
+    //   input.addEventListener('change', function(e) {
+    //     map.setLayoutProperty(input.id, 'visibility',
+    //         e.target.checked ? 'visible' : 'none');
+    // });
       var layers = document.getElementById('menu');
       layers.appendChild(link);
       layers.appendChild(input);
