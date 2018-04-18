@@ -1126,7 +1126,7 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Exhibits\n', 'Sponsors\n', 'Stages\n', 'Food-booths\n', 'Food-trucks\n', 'Beverages\n'];
+    var toggleableLayerIds = ['Exhibits\n', 'Sponsors\n', 'Stages\n', 'Food-booths\n', 'Food-trucks\n', 'Beverages\n', 'Ninolandia\n', 'Lowriders\n'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
@@ -1151,20 +1151,23 @@ export class MapComponent implements OnInit {
 
         if (visibility === 'visible') {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-          // var temp = document.getElementById(clickedLayer)
-          // temp.checked=false;
+
+          var temp = document.getElementById(clickedLayer) as HTMLInputElement
+          temp.checked=false;
           this.className = '';
         } else {
           this.className = 'active';
-          // var temp = document.getElementById(clickedLayer)
-          // temp.checked=true;
+          var temp = document.getElementById(clickedLayer) as HTMLInputElement
+          temp.checked=true;
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
         }
       };
-    //   input.addEventListener('change', function(e) {
-    //     map.setLayoutProperty(input.id, 'visibility',
-    //         e.target.checked ? 'visible' : 'none');
-    // });
+
+      input.addEventListener('change', function(e) {
+        var clickedBox = this.id;
+        map.setLayoutProperty(clickedBox, 'visibility',
+            this.checked ? 'visible' : 'none');
+    });
       var layers = document.getElementById('menu');
       layers.appendChild(link);
       layers.appendChild(input);
