@@ -673,6 +673,93 @@ export class MapComponent implements OnInit {
           'fill-opacity': 0.8
         }
       }); // end of ninolandia layer
+      
+      map.addLayer({ //health and wellness pavilion
+        'id': 'health and wellness',
+        'type': 'fill',
+        'source': {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              "coordinates": [
+                [
+                  [
+                    -122.41203256503341,
+                    37.75420281592962
+                  ],
+                  [
+                    -122.41201180207322,
+                    37.75399878673228
+                  ],
+                  [
+                    -122.41195247934553,
+                    37.754005822229004
+                  ],
+                  [
+                    -122.41197324229994,
+                    37.75420750624788
+                  ],
+                  [
+                    -122.41203256503341,
+                    37.75420281592962
+                  ]
+                ]
+              ]
+            }
+          }
+        },
+        'layout': {},
+        'paint': {
+          'fill-color': '#0652DD',//blue
+          'fill-opacity': 0.8
+        }
+      }); // end of health and wellness
+
+      map.addLayer({ //Native and African American Exhibit
+        'id': 'Native and African American Exhibit',
+        'type': 'fill',
+        'source': {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              "coordinates": [
+                [
+                  [
+                    -122.41200747234609,
+                    37.75398060422596
+                  ],
+                  [
+                    -122.41199171555563,
+                    37.75381366605424
+                  ],
+                  [
+                    -122.41193656679215,
+                    37.75381615767077
+                  ],
+                  [
+                    -122.41195389926104,
+                    37.75398683325312
+                  ],
+                  [
+                    -122.41200747234609,
+                    37.75398060422596
+                  ]
+                ]
+              ]
+            }
+          }
+        },
+        'layout': {},
+        'paint': {
+          'fill-color': '#1B1464',
+          'fill-opacity': 0.8
+        }
+      }); // End Native and African American Exhibit
+
       map.addLayer({ //beverages layer
         "id": "beverages",
         "type": "line",
