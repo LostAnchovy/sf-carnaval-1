@@ -86,7 +86,7 @@ export class MapComponent implements OnInit {
       this.loading = false;
 
       map.addLayer({ //exhibits layer
-        "id": "exhibits",
+        "id": "Exhibits\n",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -279,7 +279,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of exhibits layer
       map.addLayer({ //sponsors layer
-        "id": "sponsors",
+        "id": "Sponsors\n",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -522,7 +522,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of sponsors layer
       map.addLayer({ //stages layer
-        "id": "stages",
+        "id": "Stages\n",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -635,7 +635,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of stages layer
       map.addLayer({ //ninolandia layer
-        'id': 'ninolandia',
+        'id': 'Ninolandia\n',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -674,7 +674,7 @@ export class MapComponent implements OnInit {
         }
       }); // end of ninolandia layer
       map.addLayer({ //beverages layer
-        "id": "beverages",
+        "id": "Beverages\n",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -776,7 +776,7 @@ export class MapComponent implements OnInit {
         }
       }); // end of beverages layer
       map.addLayer({ //foodboth layer
-        "id": "food-booth",
+        "id": "Food-booths\n",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -894,7 +894,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of food-booth layer
       map.addLayer({ //foodtruck layer
-        "id": "food-truck",
+        "id": "Food-trucks\n",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -998,7 +998,7 @@ export class MapComponent implements OnInit {
         }
       }); // end of food-truck layer
       map.addLayer({ //lowriders layer
-        'id': 'lowriders',
+        'id': 'Lowriders\n',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -1038,7 +1038,7 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['exhibits', 'sponsors', 'stages', 'food-booth', 'food-truck', 'beverages'];
+    var toggleableLayerIds = ['Exhibits\n', 'Sponsors\n', 'Stages\n', 'Food-booths\n', 'Food-trucks\n', 'Beverages\n'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
@@ -1048,6 +1048,11 @@ export class MapComponent implements OnInit {
       link.className = 'active';
       link.textContent = id;
 
+      var input = document.createElement('input');
+      input.type = 'checkbox';
+      input.id = id;
+      input.checked = true;
+      
       link.onclick = function (e) {
         console.log(e)
         var clickedLayer = this.textContent;
@@ -1058,61 +1063,70 @@ export class MapComponent implements OnInit {
 
         if (visibility === 'visible') {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+          var temp = document.getElementById(clickedLayer)
+          temp.checked=false;
           this.className = '';
         } else {
           this.className = 'active';
+          var temp = document.getElementById(clickedLayer)
+          temp.checked=true;
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
         }
       };
-
+      input.addEventListener('change', function(e) {
+        map.setLayoutProperty(input.id, 'visibility',
+            e.target.checked ? 'visible' : 'none');
+    });
       var layers = document.getElementById('menu');
       layers.appendChild(link);
+      layers.appendChild(input);
+
     }
 
   } // end buildmap
 
   // Request permissions for geolocation & grab user location
-  private geoloc() {
+  // private geoloc() {
 
-    if (navigator.geolocation) {
-      console.log('Geolocation is supported!');
-      var startPos;
-      var nudge = document.getElementById("nudge");
+  //   if (navigator.geolocation) {
+  //     console.log('Geolocation is supported!');
+  //     var startPos;
+  //     var nudge = document.getElementById("nudge");
 
-      var showNudgeBanner = function () {
-        nudge.style.display = "block";
-      };
+  //     var showNudgeBanner = function () {
+  //       nudge.style.display = "block";
+  //     };
 
-      var hideNudgeBanner = function () {
-        nudge.style.display = "none";
-      };
+  //     var hideNudgeBanner = function () {
+  //       nudge.style.display = "none";
+  //     };
 
-      var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
+  //     var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
 
-      var geoSuccess = function (position) {
-        hideNudgeBanner();
-        // We have the location, don't display banner
-        clearTimeout(nudgeTimeoutId);
+  //     var geoSuccess = function (position) {
+  //       hideNudgeBanner();
+  //       // We have the location, don't display banner
+  //       clearTimeout(nudgeTimeoutId);
 
-        // Do magic with location
-        startPos = position;
-        document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-        document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-      };
-      var geoError = function (error) {
-        switch (error.code) {
-          case error.TIMEOUT:
-            // The user didn't accept the callout
-            showNudgeBanner();
-            break;
-        }
-      };
-      navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-    } else {
-      console.log('Geolocation is not supported for this Browser/OS.');
-    }
+  //       // Do magic with location
+  //       startPos = position;
+  //       document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+  //       document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+  //     };
+  //     var geoError = function (error) {
+  //       switch (error.code) {
+  //         case error.TIMEOUT:
+  //           // The user didn't accept the callout
+  //           showNudgeBanner();
+  //           break;
+  //       }
+  //     };
+  //     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+  //   } else {
+  //     console.log('Geolocation is not supported for this Browser/OS.');
+  //   }
 
-  };
+  // };
 
 }
 
