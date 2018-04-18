@@ -43,15 +43,15 @@ export class MapComponent implements OnInit {
 
   private initializeMap() {
     // Ask for location.
-    if (this.geolocation && navigator.geolocation) {
-      // Get coordinates
-      navigator.geolocation.getCurrentPosition(position => {
-        // 🛩
-        // map.flyTo({
-        //   center: [position.coords.longitude, position.coords.latitude]
-        // });
-      });
-    }
+    // if (this.geolocation && navigator.geolocation) {
+    //   // Get coordinates
+    //   navigator.geolocation.getCurrentPosition(position => {
+    //     // 🛩
+    //     map.flyTo({
+    //       center: [position.coords.longitude, position.coords.latitude]
+    //     });
+    //   });
+    // }
     this.buildMap();
   }
 
