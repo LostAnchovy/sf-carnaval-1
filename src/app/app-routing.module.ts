@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { MapComponent } from './map/map.component';
 import { ParadeComponent } from './parade/parade.component';
@@ -15,7 +14,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent},
   { path: '', pathMatch: 'full', component: HomeComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'map', component: MapComponent},
