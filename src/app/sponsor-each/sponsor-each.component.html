@@ -1,0 +1,5 @@
+  <a href="http://{{ sponsor.website }}" target="_blank">
+    <img *ngIf="sponsor.featured === 'Gold'" src="{{ sponsor.logo_thumbnail }}" alt="{{ sponsor.name }}" width="360px">
+    <img *ngIf="sponsor.featured === 'Silver'" src="{{ sponsor.logo_thumbnail }}" alt="{{ sponsor.name }}" width="240px">
+    <img *ngIf="sponsor.featured === 'Bronze'" src="{{ sponsor.logo_thumbnail }}" alt="{{ sponsor.name }}" width="180px">    
+  </a>

@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <app-schedule-event *ngFor="let event of events" [event]="event"></app-schedule-event>
       
       <h3 class="text-center">Saturday, May 26th, 2018</h3>
+      <app-schedule-event *ngFor="let event of events_26th" [event]="event"></app-schedule-event>
       <div class="row">
         <div class="card-group mb-2 col-sm-12">
             <div class="card">
-              <img class="card-img-top" src="{{ events[0].attributes.image_logo }}" alt="Card image cap">
+              <img class="card-img-top" src="http://via.placeholder.com/200x150" alt="Card image cap">
               <h5 class="card-header">Event Name</h5>
               <div class="card-body">
                 <h6 class="card-subtitle mb-2 text-muted">Event time & location</h6>
@@ -62,7 +62,7 @@
       <h3 class="text-center">Sunday, May 27th, 2018</h3>
 
       <div class="row justify-content-center">
-          <app-schedule-event *ngFor="let event of events" [event]="event"></app-schedule-event>
+          <app-schedule-event *ngFor="let event of events_27th" [event]="event"></app-schedule-event>
         <div class="card mb-2">
           <img class="card-img-top" src="http://via.placeholder.com/200x150" alt="filler img">
           <h5 class="card-header">Event name</h5>

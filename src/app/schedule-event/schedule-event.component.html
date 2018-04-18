@@ -3,7 +3,7 @@
       <img class="card-img-top" src="{{ event.attributes.image_thumbnail }}" alt="filler img">
       <h5 class="card-header">{{ event.attributes.title }}</h5>
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted"> {{ event.attributes.time  | date:'shortTime' }} & {{ event.attributes.location }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted"> {{ event.attributes.time  | date:'shortTime':'+0000' }}</h6>
         <p class="card-text"> {{ event.attributes.description }}</p>
       </div>
     </div>

@@ -4,24 +4,14 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <h4>Restaurant name:</h4>
-      <p>Foods offerred | foods offered</p>
-      <br>
-      <h4>Restaurant name:</h4>
-      <p>Foods offerred | foods offered</p>
-      <br>
-      <h4>Restaurant name:</h4>
-      <p>Foods offerred | foods offered</p>
+      <div id="accordian">
+        <app-food-vendor *ngFor="let vendor of foods" [vendor]="vendor"></app-food-vendor>
+      </div>
     </div>
     <div class="col-sm-6">
-      <h4>Restaurant name:</h4>
-      <p>Foods offerred | foods offered</p>
-      <br>
-      <h4>Restaurant name:</h4>
-      <p>Foods offerred | foods offered</p>
-      <br>
-      <h4>Restaurant name:</h4>
-      <p>Foods offerred | foods offered</p>
+        <!-- <div id="accordian">
+            <app-food-vendor *ngFor="let vendor of foods" [vendor]="vendor"></app-food-vendor>
+          </div> -->
     </div>
   </div>
 </div>
