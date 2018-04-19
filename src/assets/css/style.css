@@ -1,1 +1,52 @@
 /* Your custom styles */
+
+.btn-exhibit {
+    color: #fff;
+    background-color: #FD3468;
+    border-color: #FD3468;
+}
+.btn-sponsor {
+    color: #fff;
+    background-color: #6ADC07;
+    border-color: #6ADC07;
+}
+.btn-stage {
+    color: #fff;
+    background-color: #B806AD;
+    border-color: #B806AD;
+}
+.btn-nino {
+    color: #fff;
+    background-color: #FE5D4D;
+    border-color: #FE5D4D;
+}
+.btn-health {
+    color: #fff;
+    background-color: #0652DD;
+    border-color: #0652DD;
+}
+.btn-native {
+    color: #fff;
+    background-color: #1B1464;
+    border-color: #1B1464;
+}
+.btn-bev {
+    color: #fff;
+    background-color: #F8E401;
+    border-color: #F8E401;
+}
+.btn-fbooth {
+    color: #fff;
+    background-color: #00B1FC;
+    border-color: #00B1FC;
+}
+.btn-ftruck {
+    color: #fff;
+    background-color: #FE4101;
+    border-color: #FE4101;
+}
+.btn-low {
+    color: #fff;
+    background-color: #F91405;
+    border-color: #F91405;
+}

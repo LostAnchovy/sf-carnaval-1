@@ -20,9 +20,9 @@ export class ParadeComponent implements OnInit {
   // Ask for location and fly to it
   @Input() geolocation = false;
 
-  @Input() center: [Number, Number] = [-122.412660, 37.758790];
+  @Input() center: [Number, Number] = [-122.414469, 37.756034];
 
-  @Input() sw: [Number, Number] = [-122.427514, 37.745367];
+  @Input() sw: [Number, Number] = [-122.428861, 37.743562];
 
   @Input() ne: [Number, Number] = [-122.400200, 37.773207];
 
@@ -53,7 +53,7 @@ export class ParadeComponent implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 15,
+      zoom: 6,
       center: this.center,
       maxBounds: [this.sw, this.ne]
     });
