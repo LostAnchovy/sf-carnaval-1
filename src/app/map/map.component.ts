@@ -87,7 +87,7 @@ export class MapComponent implements OnInit {
       this.loading = false;
 
       map.addLayer({ //exhibits layer
-        "id": "Exhibits\n",
+        "id": "Exhibits",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -280,7 +280,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of exhibits layer
       map.addLayer({ //sponsors layer
-        "id": "Sponsors\n",
+        "id": "Sponsors",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -523,7 +523,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of sponsors layer
       map.addLayer({ //stages layer
-        "id": "Stages\n",
+        "id": "Stages",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -636,7 +636,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of stages layer
       map.addLayer({ //ninolandia layer
-        'id': 'Ninolandia\n',
+        'id': 'Ninolandia',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -676,7 +676,7 @@ export class MapComponent implements OnInit {
       }); // end of ninolandia layer
 
       map.addLayer({ //health and wellness pavilion
-        'id': 'Health & Wellness\n',
+        'id': 'Health & Wellness',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -719,7 +719,7 @@ export class MapComponent implements OnInit {
       }); // end of health and wellness
 
       map.addLayer({ //Native and African American Exhibit
-        'id': 'Native & African American Exhibit\n',
+        'id': 'Native & African American Exhibit',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -762,7 +762,7 @@ export class MapComponent implements OnInit {
       }); // End Native and African American Exhibit
 
       map.addLayer({ //beverages layer
-        "id": "Beverages\n",
+        "id": "Beverages",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -863,8 +863,8 @@ export class MapComponent implements OnInit {
           "line-opacity": 0.8
         }
       }); // end of beverages layer
-      map.addLayer({ //foodboth layer
-        "id": "Food-booths\n",
+      map.addLayer({ //foodbooth layer
+        "id": "Food-booths",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -982,7 +982,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of food-booth layer
       map.addLayer({ //foodtruck layer
-        "id": "Food-trucks\n",
+        "id": "Food-trucks",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -1086,7 +1086,7 @@ export class MapComponent implements OnInit {
         }
       }); // end of food-truck layer
       map.addLayer({ //lowriders layer
-        'id': 'Lowriders\n',
+        'id': 'Lowriders',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -1126,14 +1126,57 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Exhibits\n', 'Sponsors\n', 'Stages\n', 'Food-booths\n', 'Food-trucks\n', 'Beverages\n', 'Ninolandia\n', 'Lowriders\n', 'Health & Wellness\n', 'Native & African American Exhibit\n'];
+    var toggleableLayerIds = ['Exhibits', 'Sponsors', 'Stages', 'Food-booths', 'Food-trucks', 'Beverages', 'Ninolandia', 'Lowriders', 'Health & Wellness', 'Native & African American Exhibit'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
 
       var link = document.createElement('button');
-      link.className = 'btn btn-sm btn-block btn-primary active';
+      
       link.textContent = id;
+      link.className = 'btn btn-sm btn-block btn-primary active'
+    //   switch(link.textContent) { 
+    //     case "Exhibits": { 
+    //        link.className = 'btn btn-sm btn-block btn-exhibit active';
+    //        break; 
+    //     } 
+    //     case "Sponsors": { 
+    //       link.className = 'btn btn-sm btn-block btn-sponsor active';
+    //        break; 
+    //     } 
+    //     case "Stages": { 
+    //       link.className = 'btn btn-sm btn-block btn-stage active';
+    //        break; 
+    //     } 
+    //     case "Food-booths": { 
+    //       link.className = 'btn btn-sm btn-block btn-fbooth active';
+    //        break; 
+    //     }
+    //     case "Food-trucks": { 
+    //       link.className = 'btn btn-sm btn-block btn-ftruck active';
+    //        break; 
+    //     } 
+    //     case "Beverages": { 
+    //       link.className = 'btn btn-sm btn-block btn-bev active';
+    //        break; 
+    //     } 
+    //     case "Ninolandia": { 
+    //       link.className = 'btn btn-sm btn-block btn-nino active';
+    //        break; 
+    //     } 
+    //     case "Lowriders": { 
+    //       link.className = 'btn btn-sm btn-block btn-low active';
+    //        break; 
+    //     } 
+    //     case "Health & Wellness": { 
+    //       link.className = 'btn btn-sm btn-block btn-health active';
+    //        break; 
+    //     } 
+    //     case "Native & African American Exhibit": { 
+    //       link.className = 'btn btn-sm btn-block btn-native active';
+    //        break; 
+    //     } 
+    //  } 
 
       link.onclick = function (e) {
         var clickedLayer = this.textContent;
@@ -1142,10 +1185,52 @@ export class MapComponent implements OnInit {
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
         if (visibility === 'visible') {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-          this.className = 'btn btn-sm btn-block btn-info';
+          this.className = 'btn btn-sm btn-block btn-light';
         } else {
           this.className = 'btn btn-sm btn-block btn-primary active';
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+          // switch(clickedLayer) { 
+          //   case "Exhibits": { 
+          //      this.className = 'btn btn-sm btn-block btn-exhibit active';
+          //      break; 
+          //   } 
+          //   case "Sponsors": { 
+          //     this.className = 'btn btn-sm btn-block btn-sponsor active';
+          //      break; 
+          //   } 
+          //   case "Stages": { 
+          //     this.className = 'btn btn-sm btn-block btn-stage active';
+          //      break; 
+          //   } 
+          //   case "Food-booths": { 
+          //     this.className = 'btn btn-sm btn-block btn-fbooth active';
+          //      break; 
+          //   }
+          //   case "Food-trucks": { 
+          //     this.className = 'btn btn-sm btn-block btn-ftruck active';
+          //      break; 
+          //   } 
+          //   case "Beverages": { 
+          //     this.className = 'btn btn-sm btn-block btn-bev active';
+          //      break; 
+          //   } 
+          //   case "Ninolandia": { 
+          //     this.className = 'btn btn-sm btn-block btn-nino active';
+          //      break; 
+          //   } 
+          //   case "Lowriders": { 
+          //     this.className = 'btn btn-sm btn-block btn-low active';
+          //      break; 
+          //   } 
+          //   case "Health & Wellness": { 
+          //     this.className = 'btn btn-sm btn-block btn-health active';
+          //      break; 
+          //   } 
+          //   case "Native & African American Exhibit": { 
+          //     this.className = 'btn btn-sm btn-block btn-native active';
+          //      break; 
+          //   } 
+          // }
         }
       };
       var layers = document.getElementById('menu');
