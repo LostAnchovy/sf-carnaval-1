@@ -15,7 +15,7 @@ import * as mapboxgl from 'mapbox-gl';
 })
 export class MapComponent implements OnInit {
   // Our map! :)
-  private map: mapboxgl.Map;
+  public map: mapboxgl.Map;
 
   loading = true;
 
@@ -71,13 +71,13 @@ export class MapComponent implements OnInit {
     // disable map rotation using touch rotation gesture
     map.touchZoomRotate.disableRotation();
 
-    //user tracking
-    map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true
-      },
-      trackUserLocation: true
-    }));
+    // //user tracking
+    // map.addControl(new mapboxgl.GeolocateControl({
+    //   positionOptions: {
+    //     enableHighAccuracy: true
+    //   },
+    //   trackUserLocation: true
+    // }));
 
     // Add map controls
     map.addControl(new mapboxgl.NavigationControl());
@@ -674,9 +674,9 @@ export class MapComponent implements OnInit {
           'fill-opacity': 0.8
         }
       }); // end of ninolandia layer
-      
+
       map.addLayer({ //health and wellness pavilion
-        'id': 'health and wellness',
+        'id': 'Health & Wellness\n',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -719,7 +719,7 @@ export class MapComponent implements OnInit {
       }); // end of health and wellness
 
       map.addLayer({ //Native and African American Exhibit
-        'id': 'Native and African American Exhibit',
+        'id': 'Native & African American Exhibit\n',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -1126,98 +1126,32 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Exhibits\n', 'Sponsors\n', 'Stages\n', 'Food-booths\n', 'Food-trucks\n', 'Beverages\n', 'Ninolandia\n', 'Lowriders\n'];
+    var toggleableLayerIds = ['Exhibits\n', 'Sponsors\n', 'Stages\n', 'Food-booths\n', 'Food-trucks\n', 'Beverages\n', 'Ninolandia\n', 'Lowriders\n', 'Health & Wellness\n', 'Native & African American Exhibit\n'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
 
-      var link = document.createElement('a');
-      link.href = '#';
-      link.className = 'active';
+      var link = document.createElement('button');
+      link.className = 'btn btn-sm btn-block btn-primary active';
       link.textContent = id;
 
-      var input = document.createElement('input');
-      input.type = 'checkbox';
-      input.id = id;
-      input.checked = true;
-      
       link.onclick = function (e) {
-        console.log(e)
         var clickedLayer = this.textContent;
         e.preventDefault();
         e.stopPropagation();
-
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
         if (visibility === 'visible') {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-
-          var temp = document.getElementById(clickedLayer) as HTMLInputElement
-          temp.checked=false;
-          this.className = '';
+          this.className = 'btn btn-sm btn-block btn-info';
         } else {
-          this.className = 'active';
-          var temp = document.getElementById(clickedLayer) as HTMLInputElement
-          temp.checked=true;
+          this.className = 'btn btn-sm btn-block btn-primary active';
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
         }
       };
-
-      input.addEventListener('change', function(e) {
-        var clickedBox = this.id;
-        map.setLayoutProperty(clickedBox, 'visibility',
-            this.checked ? 'visible' : 'none');
-    });
       var layers = document.getElementById('menu');
       layers.appendChild(link);
-      layers.appendChild(input);
-
     }
-
-  } // end buildmap
-
-  // Request permissions for geolocation & grab user location
-  // private geoloc() {
-
-  //   if (navigator.geolocation) {
-  //     console.log('Geolocation is supported!');
-  //     var startPos;
-  //     var nudge = document.getElementById("nudge");
-
-  //     var showNudgeBanner = function () {
-  //       nudge.style.display = "block";
-  //     };
-
-  //     var hideNudgeBanner = function () {
-  //       nudge.style.display = "none";
-  //     };
-
-  //     var nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
-
-  //     var geoSuccess = function (position) {
-  //       hideNudgeBanner();
-  //       // We have the location, don't display banner
-  //       clearTimeout(nudgeTimeoutId);
-
-  //       // Do magic with location
-  //       startPos = position;
-  //       document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-  //       document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-  //     };
-  //     var geoError = function (error) {
-  //       switch (error.code) {
-  //         case error.TIMEOUT:
-  //           // The user didn't accept the callout
-  //           showNudgeBanner();
-  //           break;
-  //       }
-  //     };
-  //     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-  //   } else {
-  //     console.log('Geolocation is not supported for this Browser/OS.');
-  //   }
-
-  // };
-
+    // end buildmap
+  }
 }
 
