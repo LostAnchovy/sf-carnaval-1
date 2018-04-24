@@ -22,6 +22,7 @@ import { ScheduleEventComponent } from './schedule-event/schedule-event.componen
 import { FoodVendorComponent } from './food-vendor/food-vendor.component';
 import { SponsorEachComponent } from './sponsor-each/sponsor-each.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { VendorBoothComponent } from './vendor-booth/vendor-booth.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ArtistsComponent } from './artists/artists.component';
     ScheduleEventComponent,
     FoodVendorComponent,
     SponsorEachComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    VendorBoothComponent
   ],
   imports: [
     BrowserModule,
