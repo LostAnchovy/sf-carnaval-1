@@ -8,9 +8,8 @@ import { ApiService } from '../api.service';
 })
 export class SponsorsComponent implements OnInit {
   sponsors;
-  gold_sponsors = [];
-  silver_sponsors = [];
-  bronze_sponsors = [];
+  featured_sponsors = [];
+  other_sponsors = [];
 
   constructor(
     private _api: ApiService
@@ -28,12 +27,10 @@ export class SponsorsComponent implements OnInit {
   // Sorts Sponsors by tier
   sortSponsors(){
     for(var i = 0; i < this.sponsors.length; i++){
-      if(this.sponsors[i].attributes.featured == "Gold"){
-        this.gold_sponsors.push(this.sponsors[i].attributes);
-      } else if (this.sponsors[i].attributes.featured == "Silver"){
-        this.silver_sponsors.push(this.sponsors[i].attributes);
+      if(this.sponsors[i].attributes.featured == true){
+        this.featured_sponsors.push(this.sponsors[i].attributes);
       } else {
-        this.bronze_sponsors.push(this.sponsors[i].attributes);
+        this.other_sponsors.push(this.sponsors[i].attributes);
       }
     }
   }

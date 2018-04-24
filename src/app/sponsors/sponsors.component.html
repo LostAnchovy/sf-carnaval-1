@@ -5,16 +5,13 @@
   <h3 class="lead text-center">Thank You to Our Presenting Sponsors:</h3>
   <hr>
   <div class="row justify-content-center align-items-center">
-    <app-sponsor-each class="col-12 col-sm-6 col-md-4 col-lg-3 text-center" *ngFor="let sponsor of gold_sponsors" [sponsor]="sponsor"></app-sponsor-each>   
+    <app-sponsor-each class="col-12 col-sm-6 col-md-4 col-lg-3 text-center" *ngFor="let sponsor of featured_sponsors" [sponsor]="sponsor"></app-sponsor-each>   
   </div>
   <hr>
   <div class="row justify-content-center align-items-center">
-    <app-sponsor-each class="col-12 col-sm-6 col-md-4 col-lg-3 text-center" *ngFor="let sponsor of silver_sponsors" [sponsor]="sponsor"></app-sponsor-each>
+    <app-sponsor-each class="col-12 col-sm-6 col-md-4 col-lg-3 text-center" *ngFor="let sponsor of other_sponsors" [sponsor]="sponsor"></app-sponsor-each>
   </div>
-  <hr>
-  <div class="row justify-content-center align-items-center">
-    <app-sponsor-each class="col-12 col-sm-6 col-md-4 col-lg-3 text-center" *ngFor="let sponsor of bronze_sponsors" [sponsor]="sponsor"></app-sponsor-each>
-  </div>
+
 
 </div>
 
