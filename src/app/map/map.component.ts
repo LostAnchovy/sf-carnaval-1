@@ -522,6 +522,7 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of sponsors layer
+
       map.addLayer({ //stages layer
         "id": "Stages",
         "type": "fill",
@@ -635,6 +636,8 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of stages layer
+
+
       map.addLayer({ //ninolandia layer
         'id': 'Ninolandia',
         'type': 'fill',
@@ -674,6 +677,51 @@ export class MapComponent implements OnInit {
           'fill-opacity': 0.8
         }
       }); // end of ninolandia layer
+
+      map.addLayer({ //First-Aid
+        'id': 'First-Aid',
+        'type': 'fill',
+        'source': {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              "coordinates": [
+                [
+                  [
+                    -122.41300557887726,
+                    37.760636095960365
+                  ],
+                  [
+                    -122.41300232088146,
+                    37.760598748396916
+                  ],
+                  [
+                    -122.41292657245354,
+                    37.76060132409086
+                  ],
+                  [
+                    -122.41292901595038,
+                    37.76063931557613
+                  ],
+                  [
+                    -122.41300557887726,
+                    37.760636095960365
+                  ]
+                ]
+              ]
+            }
+          }
+        },
+        'layout': {
+          'visibility': 'visible'
+        },
+        'paint': {
+          'fill-color': '#FE5D4D',
+          'fill-opacity': 0.8
+        }
+      }); // end of First-Aid Layer
 
       map.addLayer({ //health and wellness pavilion
         'id': 'Health & Wellness',
@@ -718,8 +766,8 @@ export class MapComponent implements OnInit {
         }
       }); // end of health and wellness
 
-      map.addLayer({ //Native and African American Exhibit
-        'id': 'Native & African American Exhibit',
+      map.addLayer({ //Native and African American Center
+        'id': 'Native & African American Center',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -981,6 +1029,68 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of food-booth layer
+
+      map.addLayer({ // Dj Layer
+        "id": "DJ",
+        "type": "fill",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "FeatureCollection",
+            "features": [{
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    //22nd street right of bathrooms
+                    [-122.41198612458838,37.755911989282254],
+                    [-122.41198079636422, 37.75585582077622],
+                    [-122.41184936678911, 37.75586284183902],
+                    [-122.41185469501681, 37.75592041455113]
+                  ]
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    //18th street between bathrooms
+                    [ -122.41343105112946,37.762239917327506],
+                    [ -122.41342808327141,37.76220260728232],
+                    [ -122.41334425100149,37.76220709260757],
+                    [ -122.41334839764704,37.76224540724159]
+                  ]
+                ]
+              }
+            },{
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    //19th street next to bathroom
+                    [-122.41230399016992,37.76039308677072],
+                    [-122.412300360538,37.76035291365854],
+                    [-122.41223049017127,37.76035793529732],
+                    [-122.41223502720668,37.760397391030224]
+                  ]
+                ]
+              }
+            }] //end of features
+          },
+        }, //end of source
+        'layout': {
+          'visibility': 'visible'
+        },
+        "paint": {
+          "fill-color": "#F0993F",
+          "fill-opacity": 0.8
+        }
+      }); //end of dj layer
+
       map.addLayer({ //foodtruck layer
         "id": "Food-trucks",
         "type": "line",
@@ -1126,7 +1236,7 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Exhibits', 'Sponsors', 'Stages', 'Food-booths', 'Food-trucks', 'Beverages', 'Ninolandia', 'Lowriders', 'Health & Wellness', 'Native & African American Exhibit'];
+    var toggleableLayerIds = ['Exhibits', 'Sponsors', 'Stages', 'Food-booths', 'Food-trucks', 'Beverages', 'Ninolandia', 'Lowriders', 'Health & Wellness', 'Native & African American Center','DJ', 'First-Aid'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
@@ -1172,9 +1282,17 @@ export class MapComponent implements OnInit {
           link.className = 'btn btn-sm btn-block btn-health active';
            break; 
         } 
-        case "Native & African American Exhibit": { 
+        case "Native & African American Center": { 
           link.className = 'btn btn-sm btn-block btn-native active';
-           break; 
+           break;
+        }
+        case "DJ": { 
+          link.className = 'btn btn-sm btn-block btn-nino active';
+           break;
+        } 
+        case "First-Aid": { 
+          link.className = 'btn btn-sm btn-block btn-low active';
+           break;
         } 
      } 
 
@@ -1226,10 +1344,18 @@ export class MapComponent implements OnInit {
               this.className = 'btn btn-sm btn-block btn-health active';
                break; 
             } 
-            case "Native & African American Exhibit": { 
+            case "Native & African American Center": { 
               this.className = 'btn btn-sm btn-block btn-native active';
                break; 
-            } 
+            }
+            case "DJ": { 
+              this.className = 'btn btn-sm btn-block btn-nino active';
+               break; 
+            }
+            case "First-Aid": { 
+              link.className = 'btn btn-sm btn-block btn-low active';
+               break;
+            }   
           }
         }
       };
