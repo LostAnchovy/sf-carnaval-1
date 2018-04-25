@@ -26,13 +26,8 @@ export class SponsorsComponent implements OnInit {
   }
   // Sorts Sponsors by tier
   sortSponsors(){
-    for(var i = 0; i < this.sponsors.length; i++){
-      if(this.sponsors[i].attributes.featured == true){
-        this.featured_sponsors.push(this.sponsors[i].attributes);
-      } else {
-        this.other_sponsors.push(this.sponsors[i].attributes);
-      }
-    }
+    this.featured_sponsors = this.sponsors.filter((sponsors)=>sponsors.attributes.featured == true );
+    this.other_sponsors = this.sponsors.filter((sponsors)=>sponsors.attributes.featured == false);
   }
 
 

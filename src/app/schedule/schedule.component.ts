@@ -27,21 +27,11 @@ export class ScheduleComponent implements OnInit {
   }
 
   sortByDate() {
-    for(var i = 0; i < this.events.length; i++){
-      if(this.events[i].attributes.time < "2018-05-27T00:00:00+00:00"){
-        this.events_26th.push(this.events[i]);
-      } else {
-        this.events_27th.push(this.events[i]);
-      }
-    }
+
   }
 
   sortByLocation() {
-    for(var i = 0; i<this.events.length; i++){
-      if(this.events[i].attributes.location){
-        
-      }
-    }
+
   }
 
 }

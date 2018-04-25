@@ -29,25 +29,14 @@ export class VendorsComponent implements OnInit {
   }
 
   sortVendors(){
-    for(var i = 0; i < this.vendors.length; i++){
-      if(this.vendors[i].attributes.location == "Exhibits: 17th to 18th"){
-        this.e1718.push(this.vendors[i].attributes);
-      } else if (this.vendors[i].attributes.location == "Exhibits: 18th to 19th"){
-        this.e1819.push(this.vendors[i].attributes);
-      } else if (this.vendors[i].attributes.location == "Exhibits: 19th to 20th"){
-        this.e1920.push(this.vendors[i].attributes);
-      } else if (this.vendors[i].attributes.location == "Exhibits: 20th to 21st"){
-        this.e2021.push(this.vendors[i].attributes);
-      } else if (this.vendors[i].attributes.location == "Sponsors: 17th to 18th"){
-        this.s1718.push(this.vendors[i].attributes);
-      } else if (this.vendors[i].attributes.location == "Sponsors: 18th to 19th"){
-        this.s1819.push(this.vendors[i].attributes);
-      } else if (this.vendors[i].attributes.location == "Sponsors: 19th to 20th"){
-        this.s1920.push(this.vendors[i].attributes);
-      } else {
-        this.s2021.push(this.vendors[i].attributes);
-      }
-    }
+    this.e1718 = this.vendors.filter((vendors)=>vendors.attributes.location == "Exhibits: 17th to 18th");
+    this.e1819 = this.vendors.filter((vendors)=>vendors.attributes.location == "Exhibits: 18th to 19th");
+    this.e1920 = this.vendors.filter((vendors)=>vendors.attributes.location == "Exhibits: 19th to 20th");
+    this.e2021 = this.vendors.filter((vendors)=>vendors.attributes.location == "Exhibits: 20th to 21st");
+    this.s1718 = this.vendors.filter((vendors)=>vendors.attributes.location == "Sponsors: 17th to 18th");
+    this.s1819 = this.vendors.filter((vendors)=>vendors.attributes.location == "Sponsors: 18th to 19th");
+    this.s1920 = this.vendors.filter((vendors)=>vendors.attributes.location == "Sponsors: 19th to 20th");
+    this.s2021 = this.vendors.filter((vendors)=>vendors.attributes.location == "Sponsors: 20th to 21st");
   }
 
 }
