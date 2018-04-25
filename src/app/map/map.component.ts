@@ -86,8 +86,8 @@ export class MapComponent implements OnInit {
     map.on('load', (event) => {
       this.loading = false;
 
-      map.addLayer({ //exhibits layer
-        "id": "Exhibits",
+      map.addLayer({ //exhibitors layer
+        "id": "Exhibitors",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -678,8 +678,8 @@ export class MapComponent implements OnInit {
         }
       }); // end of ninolandia layer
 
-      map.addLayer({ //First-Aid
-        'id': 'First-Aid',
+      map.addLayer({ //First-Aid & Lost and Found
+        'id': 'First-Aid & Lost and Found',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -721,7 +721,7 @@ export class MapComponent implements OnInit {
           'fill-color': '#FE5D4D',
           'fill-opacity': 0.8
         }
-      }); // end of First-Aid Layer
+      }); // end of First-Aid & Lost and Found Layer
 
       map.addLayer({ //health and wellness pavilion
         'id': 'Health & Wellness',
@@ -767,7 +767,7 @@ export class MapComponent implements OnInit {
       }); // end of health and wellness
 
       map.addLayer({ //Native and African American Center
-        'id': 'Native & African American Center',
+        'id': 'Native & African American Roots Center',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -807,7 +807,7 @@ export class MapComponent implements OnInit {
           'fill-color': '#1B1464',
           'fill-opacity': 0.8
         }
-      }); // End Native and African American Exhibit
+      }); // End Native and African American Roots Center
 
       map.addLayer({ //beverages layer
         "id": "Beverages",
@@ -1236,7 +1236,7 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Exhibits', 'Sponsors', 'Stages', 'Food-booths', 'Food-trucks', 'Beverages', 'Ninolandia', 'Lowriders', 'Health & Wellness', 'Native & African American Center','DJ', 'First-Aid'];
+    var toggleableLayerIds = ['Exhibitors', 'Sponsors', 'Stages', 'Food-booths', 'Food-trucks', 'Beverages', 'Ninolandia', 'Lowriders', 'Health & Wellness', 'Native & African American Roots Center','DJ', 'First-Aid & Lost and Found'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
@@ -1246,7 +1246,7 @@ export class MapComponent implements OnInit {
       link.textContent = id;
       // link.className = 'btn btn-sm btn-block btn-primary active'
       switch(link.textContent) { 
-        case "Exhibits": { 
+        case "Exhibitors": { 
            link.className = 'btn btn-sm btn-block btn-exhibit active';
            break; 
         } 
@@ -1282,7 +1282,7 @@ export class MapComponent implements OnInit {
           link.className = 'btn btn-sm btn-block btn-health active';
            break; 
         } 
-        case "Native & African American Center": { 
+        case "Native & African American Roots Center": { 
           link.className = 'btn btn-sm btn-block btn-native active';
            break;
         }
@@ -1290,7 +1290,7 @@ export class MapComponent implements OnInit {
           link.className = 'btn btn-sm btn-block btn-nino active';
            break;
         } 
-        case "First-Aid": { 
+        case "First-Aid & Lost and Found": { 
           link.className = 'btn btn-sm btn-block btn-low active';
            break;
         } 
@@ -1308,7 +1308,7 @@ export class MapComponent implements OnInit {
           // this.className = 'btn btn-sm btn-block btn-primary active';
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
           switch(clickedLayer) { 
-            case "Exhibits": { 
+            case "Exhibitors": { 
                this.className = 'btn btn-sm btn-block btn-exhibit active';
                break; 
             } 
@@ -1344,7 +1344,7 @@ export class MapComponent implements OnInit {
               this.className = 'btn btn-sm btn-block btn-health active';
                break; 
             } 
-            case "Native & African American Center": { 
+            case "Native & African American Roots Center": { 
               this.className = 'btn btn-sm btn-block btn-native active';
                break; 
             }
@@ -1352,7 +1352,7 @@ export class MapComponent implements OnInit {
               this.className = 'btn btn-sm btn-block btn-nino active';
                break; 
             }
-            case "First-Aid": { 
+            case "First-Aid & Lost and Found": { 
               link.className = 'btn btn-sm btn-block btn-low active';
                break;
             }   
