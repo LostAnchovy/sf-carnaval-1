@@ -1,5 +1,26 @@
 <div class="container">
   <div class="row">
+    <h1 class="text-center scheduleHD1">Stages</h1>
+  </div>
+  <div class="row">
+    <h3 class="text-center">17th St Stage</h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4 class="text-center">Saturday, May 26th</h4>
+      <app-schedule-event *ngFor="let event of day1_s17" [event]="event"></app-schedule-event>
+    </div>
+    <div class="col-sm-6">
+      <h4 class="text-center">Sunday, May 27th</h4>
+      <app-schedule-event *ngFor="let event of day2_s17" [event]="event"></app-schedule-event>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
     <div class="col-sm-6">
       
       <h3 class="text-center scheduleHD1">Saturday, May 26th, 2018</h3>
