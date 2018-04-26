@@ -39,8 +39,8 @@ export class MapComponent implements OnInit {
   }
 
   private initializeMap() {
+    var map = this.buildMap();
     // Ask for location.
-
     if (this.geolocation && navigator.geolocation) {
       // Get coordinates
       navigator.geolocation.getCurrentPosition(position => {
@@ -50,7 +50,7 @@ export class MapComponent implements OnInit {
         });
       });
     }
-    this.buildMap();
+
   }
 
   private buildMap() {
@@ -59,7 +59,7 @@ export class MapComponent implements OnInit {
       style: this.style,
       zoom: 14,
       center: this.center,
-      maxBounds: [this.sw, this.ne]
+      // maxBounds: [this.sw, this.ne]
     });
 
     // disable map rotation using right click + drag
@@ -87,7 +87,7 @@ export class MapComponent implements OnInit {
           "type": "geojson",
           "data": {
             "type": "FeatureCollection",
-            "features": [{ 
+            "features": [{
               "geometry": {
                 "coordinates": [
                   [// mariposa to 18th
@@ -102,7 +102,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 18th to 18th
@@ -117,7 +117,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 18th to 19th
@@ -132,7 +132,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 19th to 20th north
@@ -147,11 +147,11 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 19th to 20th south
-                    [-122.41263567317719, 37.7594299519115 ],
+                    [-122.41263567317719, 37.7594299519115],
                     [-122.41262127552739, 37.75927417928905],
                     [-122.41248537060882, 37.759280938431985],
                     [-122.41249951430532, 37.75943691922751],
@@ -162,7 +162,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [//19th to 20th southmost
@@ -177,14 +177,14 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 20th to 21st
                     [-122.41254457472333, 37.758415484069985],
                     [-122.4124080969636, 37.75842268267354],
-                    [-122.41236593627718,37.75800595988299],
-                    [-122.41250213898303,37.75799979697048],
+                    [-122.41236593627718, 37.75800595988299],
+                    [-122.41250213898303, 37.75799979697048],
                     [-122.41254457472333, 37.758415484069985]
                   ]
                 ],
@@ -210,7 +210,7 @@ export class MapComponent implements OnInit {
           "type": "geojson",
           "data": {
             "type": "FeatureCollection",
-            "features": [{ 
+            "features": [{
               "geometry": {
                 "coordinates": [
                   [// mariposa to 18th north sponsor
@@ -225,7 +225,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// mariposa to 18th south sponsor
@@ -240,7 +240,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 18th to 18th north sponsor
@@ -255,7 +255,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 18th to 18th south sponsor
@@ -270,7 +270,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 18th to 19th north sponsor
@@ -285,7 +285,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 18th to 19th south sponsor
@@ -300,7 +300,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 19th to 20th north sponsor
@@ -315,7 +315,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 19th to 20th south sponsor
@@ -330,7 +330,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 20th to 21st
@@ -402,7 +402,7 @@ export class MapComponent implements OnInit {
                   ]
                 ]
               }
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// beer garden stage
@@ -561,7 +561,7 @@ export class MapComponent implements OnInit {
           "type": "geojson",
           "data": {
             "type": "FeatureCollection",
-            "features": [{ 
+            "features": [{
               "geometry": {
                 "coordinates": [// 17th and treat
                   [-122.41350755072068, 37.763907167595505],
@@ -572,7 +572,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// harrison and mariposa
                   [-122.4128448854279, 37.76289997102917],
@@ -582,7 +582,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// 18th
                   [-122.41373264997846, 37.76217969325498],
@@ -602,7 +602,7 @@ export class MapComponent implements OnInit {
                   [-122.41329, 37.75897]
                 ]
               }
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// beer garden 21st to 22nd
                   [-122.41233263132291, 37.75667268627208],
@@ -633,7 +633,7 @@ export class MapComponent implements OnInit {
           "type": "geojson",
           "data": {
             "type": "FeatureCollection",
-            "features": [{ 
+            "features": [{
               "geometry": {
                 "coordinates": [
                   [// 17th to mariposa
@@ -648,7 +648,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [//19th to mistral
@@ -663,7 +663,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 20th to 21st
@@ -678,7 +678,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [
                   [// 21st to 22nd
@@ -768,7 +768,7 @@ export class MapComponent implements OnInit {
           "type": "geojson",
           "data": {
             "type": "FeatureCollection",
-            "features": [{ 
+            "features": [{
               "geometry": {
                 "coordinates": [// 17th to mariposa north
                   [-122.41299597652377, 37.76401427813184],
@@ -778,7 +778,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// 17th to mariposa south
                   [-122.41290058248352, 37.7629650078037],
@@ -788,7 +788,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// 18th
                   [-122.41277524842072, 37.76158785370423],
@@ -798,7 +798,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// 21st north
                   [-122.4123975081749, 37.757633515609044],
@@ -808,7 +808,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// 21st south
                   [-122.41238755149847, 37.757532056405296],
@@ -818,7 +818,7 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, { 
+            }, {
               "geometry": {
                 "coordinates": [// 23rd
                   [-122.41198026484055, 37.754248764612086],
