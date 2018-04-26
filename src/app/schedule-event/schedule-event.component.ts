@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ScheduleEventComponent implements OnInit {
   @Input() event;
+  eventlink;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
