@@ -24,14 +24,11 @@ export class MapComponent implements OnInit {
   @Input() style = 'mapbox://styles/anilad/cjfajrz4c71qn2tkasuwl9p7a';
 
   // Ask for location and fly to it
-  @Input() geolocation = false;
-
-  @Input() center: [Number, Number] = [-122.412660, 37.758790];
-
-  @Input() sw: [Number, Number] = [-122.427514, 37.745367];
-
-  @Input() ne: [Number, Number] = [-122.400200, 37.773207];
-
+  @Input() geolocation = true;
+  @Input() center: [Number, Number] = [-122.414741, 37.758917];
+  @Input() sw: [Number, Number] = [-122.429118, 37.745576];
+  @Input() ne: [Number, Number] = [-122.403247, 37.773037];
+  
   constructor() {
     // Setup mapbox public key
     mapboxgl.accessToken = environment.mapbox.accessToken;
@@ -44,15 +41,15 @@ export class MapComponent implements OnInit {
   private initializeMap() {
     // Ask for location.
 
-    // if (this.geolocation && navigator.geolocation) {
-    //   // Get coordinates
-    //   navigator.geolocation.getCurrentPosition(position => {
-    //     // 🛩
-    //     map.flyTo({
-    //       center: [position.coords.longitude, position.coords.latitude]
-    //     });
-    //   });
-    // }
+    if (this.geolocation && navigator.geolocation) {
+      // Get coordinates
+      navigator.geolocation.getCurrentPosition(position => {
+        // 🛩
+        this.map.flyTo({
+          center: [position.coords.longitude, position.coords.latitude]
+        });
+      });
+    }
     this.buildMap();
   }
 
@@ -60,25 +57,22 @@ export class MapComponent implements OnInit {
     var map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 14.8,
+      zoom: 14,
       center: this.center,
-      //maxBounds: [this.sw, this.ne
+      maxBounds: [this.sw, this.ne]
     });
 
     // disable map rotation using right click + drag
     map.dragRotate.disable();
-
     // disable map rotation using touch rotation gesture
     map.touchZoomRotate.disableRotation();
-
-    // //user tracking
-    // map.addControl(new mapboxgl.GeolocateControl({
-    //   positionOptions: {
-    //     enableHighAccuracy: true
-    //   },
-    //   trackUserLocation: true
-    // }));
-
+    //user tracking
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
     // Add map controls
     map.addControl(new mapboxgl.NavigationControl());
 
@@ -276,7 +270,7 @@ export class MapComponent implements OnInit {
           'visibility': 'visible'
         },
         "paint": {
-          "fill-color": "#FD3468",
+          "fill-color": "#F8E401",
           "fill-opacity": 0.8
         }
       }); //end of exhibits layer
@@ -523,9 +517,8 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of sponsors layer
-
       map.addLayer({ //stages layer
-        "id": "Stages & DJ's",
+        "id": "Stages",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -542,20 +535,6 @@ export class MapComponent implements OnInit {
                     [-122.41296, 37.76430],
                     [-122.41295, 37.76421],
                     [-122.41310, 37.76420]
-                  ]
-                ]
-              }
-            }, {
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [
-                    //18th and harrison Radio Habana Stage
-                    [-122.41270, 37.761694],
-                    [-122.41257, 37.76170],
-                    [-122.412565, 37.761634],
-                    [-122.412695, 37.761628]
                   ]
                 ]
               }
@@ -637,10 +616,8 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of stages layer
-
-
       map.addLayer({ //ninolandia layer
-        'id': 'Ninolandia',
+        'id': 'Niñolandia',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -674,13 +651,13 @@ export class MapComponent implements OnInit {
           'visibility': 'visible'
         },
         'paint': {
-          'fill-color': '#FE5D4D',
+          // 'fill-color': '#FE5D4D',
+          'fill-color': '#fe4dc6',
           'fill-opacity': 0.8
         }
       }); // end of ninolandia layer
-
       map.addLayer({ //First-Aid & Lost and Found
-        'id': 'First-Aid & Lost and Found',
+        'id': 'First-Aid Lost&Found',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -719,13 +696,12 @@ export class MapComponent implements OnInit {
           'visibility': 'visible'
         },
         'paint': {
-          'fill-color': '#FE5D4D',
+          'fill-color': '#F91405',
           'fill-opacity': 0.8
         }
       }); // end of First-Aid & Lost and Found Layer
-
       map.addLayer({ //health and wellness pavilion
-        'id': 'Health & Wellness',
+        'id': 'Health&Wellness',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -736,24 +712,24 @@ export class MapComponent implements OnInit {
               "coordinates": [
                 [
                   [
-                    -122.41203256503341,
-                    37.75420281592962
+                    -122.41215,
+                    37.754218
                   ],
                   [
-                    -122.41201180207322,
-                    37.75399878673228
+                    -122.41210,
+                    37.75422
                   ],
                   [
-                    -122.41195247934553,
-                    37.754005822229004
+                    -122.41209,
+                    37.75403
                   ],
                   [
-                    -122.41197324229994,
-                    37.75420750624788
+                    -122.41214,
+                    37.75403
                   ],
                   [
-                    -122.41203256503341,
-                    37.75420281592962
+                    -122.412141,
+                    37.754031
                   ]
                 ]
               ]
@@ -766,7 +742,6 @@ export class MapComponent implements OnInit {
           'fill-opacity': 0.8
         }
       }); // end of health and wellness
-
       map.addLayer({ //Native and African Roots Center
         'id': 'Native & African Roots Center',
         'type': 'fill',
@@ -779,24 +754,24 @@ export class MapComponent implements OnInit {
               "coordinates": [
                 [
                   [
-                    -122.41200747234609,
-                    37.75398060422596
+                    -122.41214,
+                    37.75402
                   ],
                   [
-                    -122.41199171555563,
-                    37.75381366605424
+                    -122.412087,
+                    37.75402
                   ],
                   [
-                    -122.41193656679215,
-                    37.75381615767077
+                    -122.41207,
+                    37.75381
                   ],
                   [
-                    -122.41195389926104,
-                    37.75398683325312
+                    -122.412125,
+                    37.75381
                   ],
                   [
-                    -122.41200747234609,
-                    37.75398060422596
+                    -122.412129,
+                    37.75381
                   ]
                 ]
               ]
@@ -809,7 +784,6 @@ export class MapComponent implements OnInit {
           'fill-opacity': 0.8
         }
       }); // End Native and African American Roots Center
-
       map.addLayer({ //beverages layer
         "id": "Beverages",
         "type": "line",
@@ -887,17 +861,6 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
-            }, {
-              "type": "Feature",
-              "properties": {},
-              "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                  //23rd st Beverages
-                  [-122.41176, 37.75428],
-                  [-122.41165, 37.75429]
-                ]
-              }
             }]
           },
         },
@@ -907,7 +870,7 @@ export class MapComponent implements OnInit {
           "line-cap": "butt"
         },
         "paint": {
-          "line-color": "#F8E401",
+          "line-color": "#ff7033",
           "line-width": 6,
           "line-opacity": 0.8
         }
@@ -1030,7 +993,6 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of food-booth layer
-
       map.addLayer({ // Dj Layer
         "id": "DJ",
         "type": "fill",
@@ -1044,11 +1006,11 @@ export class MapComponent implements OnInit {
                 "type": "Polygon",
                 "coordinates": [
                   [
-                    //22nd street right of bathrooms
-                    [-122.41198612458838,37.755911989282254],
-                    [-122.41198079636422, 37.75585582077622],
-                    [-122.41184936678911, 37.75586284183902],
-                    [-122.41185469501681, 37.75592041455113]
+                    //18th street between bathrooms
+                    [-122.41343105112946, 37.762239917327506],
+                    [-122.41342808327141, 37.76220260728232],
+                    [-122.41334425100149, 37.76220709260757],
+                    [-122.41334839764704, 37.76224540724159]
                   ]
                 ]
               }
@@ -1058,25 +1020,25 @@ export class MapComponent implements OnInit {
                 "type": "Polygon",
                 "coordinates": [
                   [
-                    //18th street between bathrooms
-                    [ -122.41343105112946,37.762239917327506],
-                    [ -122.41342808327141,37.76220260728232],
-                    [ -122.41334425100149,37.76220709260757],
-                    [ -122.41334839764704,37.76224540724159]
+                    //19th street next to bathroom
+                    [-122.41230399016992, 37.76039308677072],
+                    [-122.412300360538, 37.76035291365854],
+                    [-122.41223049017127, 37.76035793529732],
+                    [-122.41223502720668, 37.760397391030224]
                   ]
                 ]
               }
-            },{
+            }, {
               "type": "Feature",
               "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                   [
-                    //19th street next to bathroom
-                    [-122.41230399016992,37.76039308677072],
-                    [-122.412300360538,37.76035291365854],
-                    [-122.41223049017127,37.76035793529732],
-                    [-122.41223502720668,37.760397391030224]
+                    //22nd street right of bathrooms
+                    [-122.41198612458838, 37.755911989282254],
+                    [-122.41198079636422, 37.75585582077622],
+                    [-122.41184936678911, 37.75586284183902],
+                    [-122.41185469501681, 37.75592041455113]
                   ]
                 ]
               }
@@ -1087,11 +1049,10 @@ export class MapComponent implements OnInit {
           'visibility': 'visible'
         },
         "paint": {
-          "fill-color": "#F0993F",
+          "fill-color": "#49e6e9",
           "fill-opacity": 0.8
         }
       }); //end of dj layer
-
       map.addLayer({ //foodtruck layer
         "id": "Food-trucks",
         "type": "line",
@@ -1192,8 +1153,8 @@ export class MapComponent implements OnInit {
           "line-cap": "round"
         },
         "paint": {
-          "line-color": "#FE4101",
-          "line-width": 5
+          "line-color": "#2e9112",
+          "line-width": 7
         }
       }); // end of food-truck layer
       map.addLayer({ //lowriders layer
@@ -1229,7 +1190,7 @@ export class MapComponent implements OnInit {
         },
         'layout': {},
         'paint': {
-          'fill-color': '#F91405',
+          'fill-color': '#F0993F',
           'fill-opacity': 0.8
         }
       }); // end of lowriders layer
@@ -1237,61 +1198,69 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Lowriders', 'Food-trucks', 'Exhibitors', 'Ninolandia', 'Beverages', 'Sponsors',  'Food-booths', 'Health & Wellness', "Stages & DJ's", 'Native & African Roots Center'];
+    var toggleableLayerIds = ['First-Aid Lost&Found', 'Beverages', 'Lowriders', 'Exhibitors', 'Sponsors', 'Food-trucks', 'DJ', 'Food-booths', 'Health&Wellness', 'Niñolandia', "Stages", 'Native & African Roots Center'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
 
       var link = document.createElement('button');
-      
+
       link.textContent = id;
 
-      switch(link.textContent) { 
-        case "Exhibitors": { 
-           link.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Sponsors": { 
-          link.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Stages & DJ's": { 
-          link.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Food-booths": { 
-          link.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
-           break; 
+      switch (link.textContent) {
+        case "Exhibitors": {
+          link.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
+          break;
         }
-        case "Food-trucks": { 
+        case "Sponsors": {
+          link.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
+          break;
+        }
+        case "Stages": {
+          link.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
+          break;
+        }
+        case "Food-booths": {
+          link.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
+          break;
+        }
+        case "Food-trucks": {
           link.className = 'btn btn-sm btn-block btn-ftruck font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Beverages": { 
+          break;
+        }
+        case "Beverages": {
           link.className = 'btn btn-sm btn-block btn-bev font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Ninolandia": { 
+          break;
+        }
+        case "Niñolandia": {
           link.className = 'btn btn-sm btn-block btn-nino font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Lowriders": { 
+          break;
+        }
+        case "Lowriders": {
           link.className = 'btn btn-sm btn-block btn-low font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Health & Wellness": { 
+          break;
+        }
+        case "Health&Wellness": {
           link.className = 'btn btn-sm btn-block btn-health font-weight-bold p-1 m-1';
-           break; 
-        } 
-        case "Native & African Roots Center": { 
+          break;
+        }
+        case "Native & African Roots Center": {
           link.className = 'btn btn-sm btn-block btn-native font-weight-bold p-1 m-1';
-           break; 
-        } 
+          break;
+        }
+        case "DJ": {
+          link.className = 'btn btn-sm btn-block btn-dj font-weight-bold p-1 m-1';
+          break;
+        }
+        case "First-Aid Lost&Found": {
+          link.className = 'btn btn-sm btn-block btn-firstAid font-weight-bold p-1 m-1';
+          break;
+        }
         default: {
           link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
           break;
         }
-     } 
+      }
 
       link.onclick = function (e) {
         var clickedLayer = this.textContent;
@@ -1300,50 +1269,58 @@ export class MapComponent implements OnInit {
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
         if (visibility === 'visible') {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-          this.className = 'btn btn-sm btn-block btn-light';
+          this.className = 'btn btn-sm btn-block btn-light p-1 m-1';
         } else {
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-          switch(clickedLayer) { 
-            case "Exhibitors": { 
-               this.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Sponsors": { 
-              this.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Stages & DJ's": { 
-              this.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Food-booths": { 
-              this.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
-               break; 
+          switch (clickedLayer) {
+            case "Exhibitors": {
+              this.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
+              break;
             }
-            case "Food-trucks": { 
+            case "Sponsors": {
+              this.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
+              break;
+            }
+            case "Stages": {
+              this.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
+              break;
+            }
+            case "Food-booths": {
+              this.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
+              break;
+            }
+            case "Food-trucks": {
               this.className = 'btn btn-sm btn-block btn-ftruck font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Beverages": { 
+              break;
+            }
+            case "Beverages": {
               this.className = 'btn btn-sm btn-block btn-bev font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Ninolandia": { 
+              break;
+            }
+            case "Niñolandia": {
               this.className = 'btn btn-sm btn-block btn-nino font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Lowriders": { 
+              break;
+            }
+            case "Lowriders": {
               this.className = 'btn btn-sm btn-block btn-low font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Health & Wellness": { 
+              break;
+            }
+            case "Health&Wellness": {
               this.className = 'btn btn-sm btn-block btn-health font-weight-bold p-1 m-1';
-               break; 
-            } 
-            case "Native & African Roots Center": { 
+              break;
+            }
+            case "Native & African Roots Center": {
               this.className = 'btn btn-sm btn-block btn-native font-weight-bold p-1 m-1';
-               break; 
-            } 
+              break;
+            }
+            case "DJ": {
+              this.className = 'btn btn-sm btn-block btn-dj font-weight-bold p-1 m-1';
+              break;
+            }
+            case "First-Aid Lost&Found": {
+              this.className = 'btn btn-sm btn-block btn-firstAid font-weight-bold p-1 m-1';
+              break;
+            }
             default: {
               link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
               break;
