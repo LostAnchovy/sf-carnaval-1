@@ -15,7 +15,7 @@ import * as mapboxgl from 'mapbox-gl';
 })
 export class MapComponent implements OnInit {
   // Our map! :)
-  public map: mapboxgl.Map;
+  private map: mapboxgl.Map;
 
   loading = true;
 
@@ -87,7 +87,7 @@ export class MapComponent implements OnInit {
       this.loading = false;
 
       map.addLayer({ //exhibits layer
-        "id": "Exhibits",
+        "id": "Exhibitors",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -523,7 +523,7 @@ export class MapComponent implements OnInit {
         }
       }); //end of sponsors layer
       map.addLayer({ //stages layer
-        "id": "Stages",
+        "id": "Stages & DJ's",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -718,8 +718,8 @@ export class MapComponent implements OnInit {
         }
       }); // end of health and wellness
 
-      map.addLayer({ //Native and African American Exhibit
-        'id': 'Native & African American Exhibit',
+      map.addLayer({ //Native and African Roots Center
+        'id': 'Native & African Roots Center',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -1126,7 +1126,7 @@ export class MapComponent implements OnInit {
     });
 
     //start map layer toggle
-    var toggleableLayerIds = ['Exhibits', 'Sponsors', 'Stages', 'Food-booths', 'Food-trucks', 'Beverages', 'Ninolandia', 'Lowriders', 'Health & Wellness', 'Native & African American Exhibit'];
+    var toggleableLayerIds = ['Lowriders', 'Food-trucks', 'Exhibitors', 'Ninolandia', 'Beverages', 'Sponsors',  'Food-booths', 'Health & Wellness', "Stages & DJ's", 'Native & African Roots Center'];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
@@ -1134,49 +1134,52 @@ export class MapComponent implements OnInit {
       var link = document.createElement('button');
       
       link.textContent = id;
-      link.className = 'btn btn-sm btn-block btn-primary active'
-    //   switch(link.textContent) { 
-    //     case "Exhibits": { 
-    //        link.className = 'btn btn-sm btn-block btn-exhibit active';
-    //        break; 
-    //     } 
-    //     case "Sponsors": { 
-    //       link.className = 'btn btn-sm btn-block btn-sponsor active';
-    //        break; 
-    //     } 
-    //     case "Stages": { 
-    //       link.className = 'btn btn-sm btn-block btn-stage active';
-    //        break; 
-    //     } 
-    //     case "Food-booths": { 
-    //       link.className = 'btn btn-sm btn-block btn-fbooth active';
-    //        break; 
-    //     }
-    //     case "Food-trucks": { 
-    //       link.className = 'btn btn-sm btn-block btn-ftruck active';
-    //        break; 
-    //     } 
-    //     case "Beverages": { 
-    //       link.className = 'btn btn-sm btn-block btn-bev active';
-    //        break; 
-    //     } 
-    //     case "Ninolandia": { 
-    //       link.className = 'btn btn-sm btn-block btn-nino active';
-    //        break; 
-    //     } 
-    //     case "Lowriders": { 
-    //       link.className = 'btn btn-sm btn-block btn-low active';
-    //        break; 
-    //     } 
-    //     case "Health & Wellness": { 
-    //       link.className = 'btn btn-sm btn-block btn-health active';
-    //        break; 
-    //     } 
-    //     case "Native & African American Exhibit": { 
-    //       link.className = 'btn btn-sm btn-block btn-native active';
-    //        break; 
-    //     } 
-    //  } 
+      switch(link.textContent) { 
+        case "Exhibitors": { 
+           link.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Sponsors": { 
+          link.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Stages & DJ's": { 
+          link.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Food-booths": { 
+          link.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
+           break; 
+        }
+        case "Food-trucks": { 
+          link.className = 'btn btn-sm btn-block btn-ftruck font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Beverages": { 
+          link.className = 'btn btn-sm btn-block btn-bev font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Ninolandia": { 
+          link.className = 'btn btn-sm btn-block btn-nino font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Lowriders": { 
+          link.className = 'btn btn-sm btn-block btn-low font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Health & Wellness": { 
+          link.className = 'btn btn-sm btn-block btn-health font-weight-bold p-1 m-1';
+           break; 
+        } 
+        case "Native & African Roots Center": { 
+          link.className = 'btn btn-sm btn-block btn-native font-weight-bold p-1 m-1';
+           break; 
+        } 
+        default: {
+          link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
+          break;
+        }
+     } 
 
       link.onclick = function (e) {
         var clickedLayer = this.textContent;
@@ -1187,50 +1190,53 @@ export class MapComponent implements OnInit {
           map.setLayoutProperty(clickedLayer, 'visibility', 'none');
           this.className = 'btn btn-sm btn-block btn-light';
         } else {
-          this.className = 'btn btn-sm btn-block btn-primary active';
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-          // switch(clickedLayer) { 
-          //   case "Exhibits": { 
-          //      this.className = 'btn btn-sm btn-block btn-exhibit active';
-          //      break; 
-          //   } 
-          //   case "Sponsors": { 
-          //     this.className = 'btn btn-sm btn-block btn-sponsor active';
-          //      break; 
-          //   } 
-          //   case "Stages": { 
-          //     this.className = 'btn btn-sm btn-block btn-stage active';
-          //      break; 
-          //   } 
-          //   case "Food-booths": { 
-          //     this.className = 'btn btn-sm btn-block btn-fbooth active';
-          //      break; 
-          //   }
-          //   case "Food-trucks": { 
-          //     this.className = 'btn btn-sm btn-block btn-ftruck active';
-          //      break; 
-          //   } 
-          //   case "Beverages": { 
-          //     this.className = 'btn btn-sm btn-block btn-bev active';
-          //      break; 
-          //   } 
-          //   case "Ninolandia": { 
-          //     this.className = 'btn btn-sm btn-block btn-nino active';
-          //      break; 
-          //   } 
-          //   case "Lowriders": { 
-          //     this.className = 'btn btn-sm btn-block btn-low active';
-          //      break; 
-          //   } 
-          //   case "Health & Wellness": { 
-          //     this.className = 'btn btn-sm btn-block btn-health active';
-          //      break; 
-          //   } 
-          //   case "Native & African American Exhibit": { 
-          //     this.className = 'btn btn-sm btn-block btn-native active';
-          //      break; 
-          //   } 
-          // }
+          switch(clickedLayer) { 
+            case "Exhibitors": { 
+               this.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Sponsors": { 
+              this.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Stages & DJ's": { 
+              this.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Food-booths": { 
+              this.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
+               break; 
+            }
+            case "Food-trucks": { 
+              this.className = 'btn btn-sm btn-block btn-ftruck font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Beverages": { 
+              this.className = 'btn btn-sm btn-block btn-bev font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Ninolandia": { 
+              this.className = 'btn btn-sm btn-block btn-nino font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Lowriders": { 
+              this.className = 'btn btn-sm btn-block btn-low font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Health & Wellness": { 
+              this.className = 'btn btn-sm btn-block btn-health font-weight-bold p-1 m-1';
+               break; 
+            } 
+            case "Native & African Roots Center": { 
+              this.className = 'btn btn-sm btn-block btn-native font-weight-bold p-1 m-1';
+               break; 
+            } 
+            default: {
+              link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
+              break;
+            }
+          }
         }
       };
       var layers = document.getElementById('menu');
