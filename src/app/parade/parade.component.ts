@@ -64,6 +64,12 @@ export class ParadeComponent implements OnInit {
     // Add map controls
     map.addControl(new mapboxgl.NavigationControl());
 
+    // disable map rotation using right click + drag
+    map.dragRotate.disable();
+
+    // disable map rotation using touch rotation gesture
+    map.touchZoomRotate.disableRotation();
+
     // Toggle loading symbol v. map
     map.on('load', (event) => {
       this.loading = false;
