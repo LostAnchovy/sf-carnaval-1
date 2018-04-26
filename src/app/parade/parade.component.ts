@@ -20,11 +20,14 @@ export class ParadeComponent implements OnInit {
   // Ask for location and fly to it
   @Input() geolocation = false;
 
-  @Input() center: [Number, Number] = [-122.414469, 37.756034];
+  // @Input() center: [Number, Number] = [-122.414469, 37.756034];
+  @Input() center: [Number, Number] = [-122.418915, 37.757044];
 
-  @Input() sw: [Number, Number] = [-122.428861, 37.743562];
+  // @Input() sw: [Number, Number] = [-122.428861, 37.743562];
+  @Input() sw: [Number, Number] = [-122.429118, 37.745576];
 
-  @Input() ne: [Number, Number] = [-122.400200, 37.773207];
+  // @Input() ne: [Number, Number] = [-122.400200, 37.773207];
+  @Input() ne: [Number, Number] = [-122.403247, 37.773037];
 
   constructor() {
     // Setup mapbox public key
@@ -50,24 +53,23 @@ export class ParadeComponent implements OnInit {
   }
 
   private buildMap() {
-    this.map = new mapboxgl.Map({
+    var map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 6,
+      zoom: 4,
       center: this.center,
       maxBounds: [this.sw, this.ne]
     });
 
     // Add map controls
-    this.map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl());
 
-    // Toggle loading symbol
-    this.map.on('load', (event) => {
+    // Toggle loading symbol v. map
+    map.on('load', (event) => {
       this.loading = false;
-      
       // Add line for parade
-      this.map.addLayer({
-        "id": "parade",
+      map.addLayer({
+        "id": "Parade",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -94,10 +96,9 @@ export class ParadeComponent implements OnInit {
           "line-width": 8
         }
       }); // end of parade line
-
       // Add line for Festival
-      this.map.addLayer({
-        "id": "festival",
+      map.addLayer({
+        "id": "Festival",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -122,10 +123,9 @@ export class ParadeComponent implements OnInit {
           "line-width": 8
         }
       }); // end of festival line layer
-
       // Add line for Destaging Area
-      this.map.addLayer({
-        "id": "destage",
+      map.addLayer({
+        "id": "Destaging",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -151,10 +151,47 @@ export class ParadeComponent implements OnInit {
           "line-width": 8
         }
       }); // end of destaging area layer
-
       // Add line for Staging Area
-      this.map.addLayer({
-        "id": "stage1",
+      map.addLayer({ //staging area layer
+        "id": "Staging",
+        "type": "line",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "FeatureCollection",
+            "features": [{
+              "type": "Feature",
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [-122.410384, 37.764326],
+                  [-122.408748, 37.748486],
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [-122.408216, 37.752867],
+                  [-122.411904, 37.752642]
+                ]
+              }
+            }] //end of features
+          },
+        }, //end of source
+        "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        "paint": {
+          "line-color": "rgba(237, 76, 103, 0.5)",
+          "line-width": 8
+        }
+      }); //end of staging area layer
+      // Add line for Judges & Grandstands Area
+      map.addLayer({
+        "id": "GrandStand",
         "type": "line",
         "source": {
           "type": "geojson",
@@ -164,8 +201,8 @@ export class ParadeComponent implements OnInit {
             "geometry": {
               "type": "LineString",
               "coordinates": [
-                [-122.410384, 37.764326],
-                [-122.408748, 37.748486],  
+                [-122.418551, 37.757018],
+                [-122.418404, 37.755525]
               ]
             }
           }
@@ -175,37 +212,89 @@ export class ParadeComponent implements OnInit {
           "line-cap": "round"
         },
         "paint": {
-          "line-color": "rgba(237, 76, 103, 0.5)",
+          "line-color": "rgba(134, 20, 255, 0.5)",
           "line-width": 8
         }
-      });
-      this.map.addLayer({
-        "id": "stage2",
-        "type": "line",
-        "source": {
-          "type": "geojson",
-          "data": {
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-              "type": "LineString",
-              "coordinates": [
-                [-122.408216, 37.752867], 
-                [-122.411904, 37.752642]
-              ]
-            }
-          }
-        },
-        "layout": {
-          "line-join": "round",
-          "line-cap": "round"
-        },
-        "paint": {
-          "line-color": "rgba(237, 76, 103, 0.5)",
-          "line-width": 8
-        }
-
-      });// end of staging area layer
+      }); // end of Judges & Grandstands area layer
     });
+
+    //togglable legend buttons
+    var toggleableLayerIds = ['Staging', 'Destaging', 'Parade', 'Festival', 'GrandStand'];
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+      var id = toggleableLayerIds[i];
+
+      var link = document.createElement('button');
+
+      link.textContent = id;
+
+      switch (link.textContent) {
+        case "Staging": {
+          link.className = 'btn btn-sm btn-block btn-staging font-weight-bold p-1 m-1';
+          break;
+        }
+        case "Festival": {
+          link.className = 'btn btn-sm btn-block btn-festival font-weight-bold p-1 m-1';
+          break;
+        }
+        case "Parade": {
+          link.className = 'btn btn-sm btn-block btn-parade font-weight-bold p-1 m-1';
+          break;
+        }
+        case "Destaging": {
+          link.className = 'btn btn-sm btn-block btn-destage font-weight-bold p-1 m-1';
+          break;
+        }
+        case "GrandStand": {
+          link.className = 'btn btn-sm btn-block btn-grand font-weight-bold p-1 m-1';
+          break;
+        }
+        default: {
+          link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1';
+          break;
+        }
+      }
+
+      link.onclick = function (e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+        if (visibility === 'visible') {
+          map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+          this.className = 'btn btn-sm btn-block btn-light p-1 m-1';
+        } else {
+          map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+          switch (clickedLayer) {
+            case "Staging": {
+              this.className = 'btn btn-sm btn-block btn-staging font-weight-bold p-1 m-1'
+              break;
+            }
+            case "Festival": {
+              this.className = 'btn btn-sm btn-block btn-festival font-weight-bold p-1 m-1';
+              break;
+            }
+            case "Parade": {
+              this.className = 'btn btn-sm btn-block btn-parade font-weight-bold p-1 m-1';
+              break;
+            }
+            case "Destaging": {
+              this.className = 'btn btn-sm btn-block btn-destage font-weight-bold p-1 m-1';
+              break;
+            }
+            case "GrandStand": {
+              this.className = 'btn btn-sm btn-block btn-grand font-weight-bold p-1 m-1';
+              break;
+            }
+            default: {
+              this.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
+              break;
+            }
+          }
+        }
+      };
+      var layers = document.getElementById('menu');
+      layers.appendChild(link);
+
+    }
   }
 }
