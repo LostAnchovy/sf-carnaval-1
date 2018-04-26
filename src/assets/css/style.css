@@ -50,3 +50,28 @@
     background-color: #F91405;
     border-color: #F91405;
 }
+.btn-staging {
+    color: #fff;
+    background-color: #ed4c67;
+    border-color: #ed4c67;
+}
+.btn-festival {
+    color: #fff;
+    background-color: #0652dd;
+    border-color: #0652dd;
+}
+.btn-parade {
+    color: #fff;
+    background-color: #009432;
+    border-color: #009432;
+}
+.btn-destage {
+    color: #fff;
+    background-color: #ffc412;
+    border-color: #ffc412;
+}
+.btn-grand {
+    color: #fff;
+    background-color: #8614ff;
+    border-color: #8614ff;
+}
