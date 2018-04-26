@@ -4,14 +4,40 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
+      <h5 class="text-center">Booths on 17th to 18th</h5>
       <div id="accordian">
-        <app-food-vendor *ngFor="let vendor of foods" [vendor]="vendor"></app-food-vendor>
+        <app-vendor-booth *ngFor="let vendor of b1718" [vendor]="vendor"></app-vendor-booth>
+      </div>
+      <h5 class="text-center">Booths on 19th to 20th</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of b1920" [vendor]="vendor"></app-vendor-booth>
+      </div>
+      <h5 class="text-center">Booths on 20th to 21st</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of b2021" [vendor]="vendor"></app-vendor-booth>
+      </div>
+      <h5 class="text-center">Booths on 21st to 22nd</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of b2122" [vendor]="vendor"></app-vendor-booth>
       </div>
     </div>
     <div class="col-sm-6">
-        <!-- <div id="accordian">
-            <app-food-vendor *ngFor="let vendor of foods" [vendor]="vendor"></app-food-vendor>
-          </div> -->
+      <h5 class="text-center">Trucks on 17th to 18th</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of t1718" [vendor]="vendor"></app-vendor-booth>
+      </div>
+      <h5 class="text-center">Trucks on 18th and 19th</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of t1819" [vendor]="vendor"></app-vendor-booth>
+      </div>
+      <h5 class="text-center">Trucks on 21st</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of t21" [vendor]="vendor"></app-vendor-booth>
+      </div>
+      <h5 class="text-center">Trucks on 23rd</h5>
+      <div id="accordian">
+        <app-vendor-booth *ngFor="let vendor of t23" [vendor]="vendor"></app-vendor-booth>
+      </div>
     </div>
   </div>
 </div>

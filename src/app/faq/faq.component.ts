@@ -30,19 +30,11 @@ export class FaqComponent implements OnInit {
 
   // Sorts FAQ's for better viewing
   splitFAQs(){
-    for(var i=0; i<this.faqs.length; i++){
-      if(this.faqs[i].attributes.category == "General"){
-        this.gen_faq.push(this.faqs[i]);
-      } else if(this.faqs[i].attributes.category == "Photography"){
-        this.photo_faq.push(this.faqs[i]);
-      } else if(this.faqs[i].attributes.category == "Festival"){
-        this.fest_faq.push(this.faqs[i]);
-      } else if(this.faqs[i].attributes.category == "Parade"){
-        this.parade_faq.push(this.faqs[i]);
-      } else if(this.faqs[i].attributes.category == "Volunteer/Participant"){
-        this.vol_faq.push(this.faqs[i]);
-      }
-    }
+    this.gen_faq = this.faqs.filter((faq)=>faq.attributes.category == "General");
+    this.photo_faq = this.faqs.filter((faq)=>faq.attributes.category == "Photography");
+    this.fest_faq = this.faqs.filter((faq)=>faq.attributes.category == "Festival");
+    this.parade_faq = this.faqs.filter((faq)=>faq.attributes.category == "Parade");
+    this.vol_faq = this.faqs.filter((faq)=>faq.attributes.category == "Volunteer/Participant");
   }
 
 }

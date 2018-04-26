@@ -19,9 +19,9 @@ import { ApiService } from './api.service';
 import { FaqQuestionComponent } from './faq-question/faq-question.component';
 import { ParadeComponent } from './parade/parade.component';
 import { ScheduleEventComponent } from './schedule-event/schedule-event.component';
-import { FoodVendorComponent } from './food-vendor/food-vendor.component';
 import { SponsorEachComponent } from './sponsor-each/sponsor-each.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { VendorBoothComponent } from './vendor-booth/vendor-booth.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +40,9 @@ import { ArtistsComponent } from './artists/artists.component';
     FaqQuestionComponent,
     ParadeComponent,
     ScheduleEventComponent,
-    FoodVendorComponent,
     SponsorEachComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    VendorBoothComponent
   ],
   imports: [
     BrowserModule,

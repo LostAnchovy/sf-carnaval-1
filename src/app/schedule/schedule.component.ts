@@ -8,8 +8,17 @@ import { ApiService } from '../api.service';
 })
 export class ScheduleComponent implements OnInit {
   events;
-  events_26th = [];
-  events_27th = [];
+  day1_s17 = [];
+  day1_s20 = [];
+  day1_s21 = [];
+  day1_s22 = [];
+  day2_s17 = [];
+  day2_s20 = [];
+  day2_s21 = [];
+  day2_s22 = [];
+  day2_dj18 = [];
+  day2_dj19 = [];
+  day2_dj22 = [];
 
   constructor(
     private _api: ApiService
@@ -21,27 +30,24 @@ export class ScheduleComponent implements OnInit {
     obs.subscribe(data => {
       // Pulls Events from DB
       this.events = data['data'];
-      this.sortByDate();
+      console.log(this.events);
+      this.sortEvents();
         
     })
   }
 
-  sortByDate() {
-    for(var i = 0; i < this.events.length; i++){
-      if(this.events[i].attributes.time < "2018-05-27T00:00:00+00:00"){
-        this.events_26th.push(this.events[i]);
-      } else {
-        this.events_27th.push(this.events[i]);
-      }
-    }
-  }
-
-  sortByLocation() {
-    for(var i = 0; i<this.events.length; i++){
-      if(this.events[i].attributes.location){
-        
-      }
-    }
+  sortEvents(){
+    this.day1_s17 = this.events.filter((event) => event.attributes.event_date == "Saturday" && event.attributes.location == "17th Street Stage");
+    this.day1_s20 = this.events.filter((event) => event.attributes.event_date == "Saturday" && event.attributes.location == "20th Street Stage");
+    this.day1_s21 = this.events.filter((event) => event.attributes.event_date == "Saturday" && event.attributes.location == "21st Street Stage");
+    this.day1_s22 = this.events.filter((event) => event.attributes.event_date == "Saturday" && event.attributes.location == "22nd Street Stage");
+    this.day2_s17 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "17th Street Stage");
+    this.day2_s20 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "20th Street Stage");
+    this.day2_s21 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "21st Street Stage");
+    this.day2_s22 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "22nd Street Stage");
+    this.day2_dj18 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "18th Street DJ Booth");
+    this.day2_dj19 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "19th Street DJ Booth");
+    this.day2_dj22 = this.events.filter((event) => event.attributes.event_date == "Sunday" && event.attributes.location == "22nd Street DJ Booth");    
   }
 
 }
