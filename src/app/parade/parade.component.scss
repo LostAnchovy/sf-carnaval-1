@@ -3,9 +3,28 @@
 .map {
   margin: auto;
   height: calc(100vh - 82px);
-  width: 80%;
+  width: 90%;
+  position: relative;
+  top: 0;
+  bottom: 0;
 }
 
 .loading {
   background: rgba(255,255,255,.5);
+}
+
+#legend{
+  margin: auto;
+  height: 100%;
+  width: 60%;
+}
+
+// map layer toggle css
+#menu {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  width: 85px;
 }

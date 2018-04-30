@@ -8,16 +8,26 @@ import { ApiService } from '../api.service';
 })
 export class SponsorsComponent implements OnInit {
   sponsors;
+  featured_sponsors = [];
+  other_sponsors = [];
 
   constructor(
     private _api: ApiService
   ) { }
 
   ngOnInit() {
-    this._api.getSponsors().subscribe(response => {
-      this.sponsors = response['data'];
-      
+    let obs = this._api.getSponsors()
+    obs.subscribe(data => {
+      // Pulls Sponsors from DB
+      this.sponsors = data['data'];
+      this.sortSponsors();
+        
     })
+  }
+  // Sorts Sponsors by tier
+  sortSponsors(){
+    this.featured_sponsors = this.sponsors.filter((sponsors)=>sponsors.attributes.featured == true );
+    this.other_sponsors = this.sponsors.filter((sponsors)=>sponsors.attributes.featured == false);
   }
 
 

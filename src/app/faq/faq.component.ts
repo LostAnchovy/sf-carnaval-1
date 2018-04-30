@@ -8,8 +8,11 @@ import { ApiService } from '../api.service';
 })
 export class FaqComponent implements OnInit {
   faqs;
-  faq_l = [];
-  faq_r = [];
+  gen_faq = [];
+  photo_faq = [];
+  fest_faq = [];
+  parade_faq =[];
+  vol_faq = [];
 
   constructor(
     private _api: ApiService
@@ -20,16 +23,18 @@ export class FaqComponent implements OnInit {
     obs.subscribe(data => {
       // Pulls FAQ's from DB
       this.faqs = data['data'];
-      // Sorts FAQ's for better viewing
-      for(var i=0; i<this.faqs.length; i++){
-        if(i%2==0){
-          this.faq_l.push(this.faqs[i]);
-        } else {
-          this.faq_r.push(this.faqs[i]);
-        }
-      }
+      this.splitFAQs();
     })
 
+  }
+
+  // Sorts FAQ's for better viewing
+  splitFAQs(){
+    this.gen_faq = this.faqs.filter((faq)=>faq.attributes.category == "General");
+    this.photo_faq = this.faqs.filter((faq)=>faq.attributes.category == "Photography");
+    this.fest_faq = this.faqs.filter((faq)=>faq.attributes.category == "Festival");
+    this.parade_faq = this.faqs.filter((faq)=>faq.attributes.category == "Parade");
+    this.vol_faq = this.faqs.filter((faq)=>faq.attributes.category == "Volunteer/Participant");
   }
 
 }

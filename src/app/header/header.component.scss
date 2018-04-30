@@ -1,22 +1,26 @@
 @import "../../variables";
 
+@media only screen and (max-width: 1000px) {
   .logobox {
-    background-image: url("/assets/images/topMob2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
+    background-image: url("/assets/images/topMobile2.jpg") !important;
   }
   nav {
-    background-image: url("/assets/images/botMob2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-attachment: scroll;
+    background-image: url("/assets/images/navMobile2.jpg") !important;
   }
+}
 
 #logo {
   height: 300px;
   width: auto;
+}
+
+.logobox {
+  height: 200px;
+  width: 100%; 
+  background-image: url("/assets/images/topDesk.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
 
 // .jumbotron {
@@ -31,6 +35,14 @@
 //     text-shadow: 3px 2px $red;
 // }
 
+nav {
+  background-image: url("/assets/images/navDesk.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: scroll;
+}
+
 .nav-link {
   color: black;
 }
@@ -40,3 +52,4 @@ img {
   height: 200px;
   object-fit: cover;
 }
+
