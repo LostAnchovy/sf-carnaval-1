@@ -19,6 +19,12 @@ export class DirectionsComponent implements OnInit {
       text: "Busses stop at both the North(Route 22, 33 & 55) and South(Route 48) end of the Venue.",
       img: "../assets/images/MUNI.png",
     },
+    {
+      header: "Sunday Bus Route",
+      text: "Some Busses are rerouted on Sunday. BART is unaffected",
+      img: "../assets/images/BusAlt.jpg",
+      class:"long"
+    },
   ];
   drivingDirections = [{
       header: "From South via 101",
@@ -39,7 +45,7 @@ export class DirectionsComponent implements OnInit {
   parkingDirections = [{
     header: "See on Google Maps",
     text: "The Mission is one of the most transit rich neighborhoods in San Francisco. We strongly encourage biking, walking, or taking public transportation to get to Carnaval San Francisco when possible.",
-    img: "../assets/images/parking.png",
+    img: "../assets/images/parking.jpg",
     link:"https://www.google.com/search?biw=1318&bih=664&q=mission+district+public+parking+sf&npsic=0&rflfq=1&rlha=0&rllag=37758018,-122419218,173&tbm=lcl&ved=0ahUKEwiVxoWJmKvaAhUxtlkKHbjHCo8QtgMIKw&tbs=lrf:!2m1!1e3!3sIAE,lf:1,lf_ui:3&rldoc=1#rlfi=hd:;si:;mv:!1m3!1d8526.412240095306!2d-122.41734878734133!3d37.760040007512565!3m2!1i898!2i519!4f13.1"
   },
 
