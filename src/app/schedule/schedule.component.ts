@@ -18,7 +18,7 @@ export class ScheduleComponent implements OnInit {
   day2_s20 = [];
   day2_s21 = [];
   day2_s22 = [];
-  day2_dj18 = [];
+  day2_dj18 = []; 
   day2_dj19 = [];
   day2_dj22 = [];
   testEvent= {
@@ -67,6 +67,8 @@ export class ScheduleComponent implements OnInit {
       this.day1_s17.push(this.testEvent);
       this.day2_s17.push(this.testEvent_sunday);
     })
+    this.day1_s17.push(this.testEvent);
+      this.day2_s17.push(this.testEvent_sunday);
     
 
   }

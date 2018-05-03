@@ -7,7 +7,7 @@
     <div class="col-12 col-sm-12 col-md-6 text-center" *ngFor="let direction of publicTransitDirections; let i = index">
       <div class="card mb-2">
         <!-- <br *ngIf="i==2"> -->
-        <div class="imageContainer">
+        <div class="imageContainer {{direction.class}}">
           <div class="imageHolder">
             <img class="card-img-top customImage" src={{direction.img}} alt="filler img">
           </div>
