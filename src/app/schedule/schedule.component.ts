@@ -30,7 +30,6 @@ export class ScheduleComponent implements OnInit {
     obs.subscribe(data => {
       // Pulls Events from DB
       this.events = data['data'];
-      console.log(this.events);
       this.sortEvents();
         
     })

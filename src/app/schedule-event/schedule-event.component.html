@@ -1,8 +1,11 @@
 <div class="card">
-  <h5 class="card-header">{{ event.attributes.title }}</h5>
   <div class="card-body">
-    <h5 class="card-title">{{ event.attributes.time  | date:'shortTime':'+0000' }}</h5>
-    <p class="card-text">{{ event.attributes.description }}</p>
-    <a href="#" class="btn-sm btn-primary">Add to Calendar</a>
+    <h5 class="card-title"><b>
+      {{ event.attributes.time  | date:'shortTime':'+0000' }}</b> {{ event.attributes.title }}
+      <a href="#">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </a>
+    </h5>
+    
   </div>
 </div>
