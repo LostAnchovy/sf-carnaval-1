@@ -71,11 +71,12 @@ export class MapComponent implements OnInit {
       positionOptions: {
         enableHighAccuracy: true
       },
-      trackUserLocation: true
+      // trackUserLocation: true
+      trackUserLocation: 'passive'
     }));
     // Add map controls
     map.addControl(new mapboxgl.NavigationControl());
-
+ 
     // Toggle loading symbol
     map.on('load', (event) => {
       this.loading = false;
@@ -482,11 +483,11 @@ export class MapComponent implements OnInit {
               'type': 'Polygon',
               "coordinates": [
                 [
-                  [-122.41300557887726, 37.760636095960365],
-                  [-122.41300232088146, 37.760598748396916],
-                  [-122.41292657245354, 37.76060132409086],
-                  [-122.41292901595038, 37.76063931557613],
-                  [-122.41300557887726, 37.760636095960365]
+                  [-122.41302573802304, 37.760666452773734],
+                  [-122.41301864019223, 37.76058053427377],
+                  [-122.41291985273828, 37.760585386734164],
+                  [-122.41292613607015, 37.76067119024587],
+                  [-122.41302573802304, 37.760666452773734]
                 ]
               ]
             }
@@ -750,6 +751,19 @@ export class MapComponent implements OnInit {
                   ]
                 ]
               }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [//lowrider 
+                    [-122.41290, 37.76001],
+                    [-122.41271, 37.76002],
+                    [-122.41270, 37.75991],
+                    [-122.41289, 37.75990]
+                  ]
+                ]
+              }
             }] //end of features
           },
         }, //end of source
@@ -761,86 +775,108 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of dj layer
-      map.addLayer({ //foodtruck layer
+      map.addLayer({ // food truck Layer
         "id": "Food-trucks",
-        "type": "line",
+        "type": "fill",
         "source": {
           "type": "geojson",
           "data": {
             "type": "FeatureCollection",
             "features": [{
-              "geometry": {
-                "coordinates": [// 17th to mariposa north
-                  [-122.41299597652377, 37.76401427813184],
-                  [-122.4129908295767, 37.76395645208635]
-                ],
-                "type": "LineString"
-              },
               "type": "Feature",
-              "properties": {}
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 17th to mariposa north
+                    [-122.41307036069426, 37.764008227008304],
+                    [-122.41292987, 37.764015],
+                    [-122.41292116552954, 37.76391871331248],
+                    [-122.41306179815695, 37.763910760843586],
+                    [-122.41307036069426, 37.764008227008304]
+                  ]
+                ]
+              }
             }, {
-              "geometry": {
-                "coordinates": [// 17th to mariposa south
-                  [-122.41290058248352, 37.7629650078037],
-                  [-122.41289549024684, 37.76290699161264]
-                ],
-                "type": "LineString"
-              },
               "type": "Feature",
-              "properties": {}
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [//17th to mariposa south
+                    [-122.41297468419789, 37.76300517271194],
+                    [-122.41284203508651, 37.76301196053748],
+                    [-122.41283549139519, 37.76294443262184],
+                    [-122.41296807483953, 37.76293673047803],
+                    [-122.41297468419789, 37.76300517271194]
+                  ]
+                ]
+              }
             }, {
-              "geometry": {
-                "coordinates": [// 18th
-                  [-122.41277524842072, 37.76158785370423],
-                  [-122.41277083159433, 37.7615458439753]
-                ],
-                "type": "LineString"
-              },
               "type": "Feature",
-              "properties": {}
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [//18th
+                    [-122.41290519843695, 37.76225789383332],
+                    [-122.41277163834584, 37.76226497590356],
+                    [-122.41276577964632, 37.76219730456995],
+                    [-122.41289840558132, 37.762190082727344],
+                    [-122.41290519843695, 37.76225789383332]
+                  ]
+                ]
+              }
             }, {
-              "geometry": {
-                "coordinates": [// 21st north
-                  [-122.4123975081749, 37.757633515609044],
-                  [-122.4123919766892, 37.75757491423346]
-                ],
-                "type": "LineString"
-              },
               "type": "Feature",
-              "properties": {}
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 21st north
+                    [-122.41247371012359, 37.757631769983604],
+                    [-122.41231544806983, 37.757639240038515],
+                    [-122.41231308594949, 37.75757387703656],
+                    [-122.41246898588285, 37.75756827449469],
+                    [-122.41247371012359, 37.757631769983604]
+                  ]
+                ]
+              }
             }, {
-              "geometry": {
-                "coordinates": [// 21st south
-                  [-122.41238755149847, 37.757532056405296],
-                  [-122.41238202001273, 37.75747345502971]
-                ],
-                "type": "LineString"
-              },
               "type": "Feature",
-              "properties": {}
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 21st south
+                    [-122.41246426164152, 37.75752905677358],
+                    [-122.41230599958776, 37.75753652682849],
+                    [-122.41230363746742, 37.75747116382654],
+                    [-122.41245953740078, 37.75746556128466],
+                    [-122.41246426164152, 37.75752905677358]
+                  ]
+                ]
+              }
             }, {
-              "geometry": {
-                "coordinates": [// 23rd
-                  [-122.41198026484055, 37.754248764612086],
-                  [-122.41190315890636, 37.754253261916105]
-                ],
-                "type": "LineString"
-              },
               "type": "Feature",
-              "properties": {}
-            }]
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 23rd 
+                    [-122.41202649706432, 37.75427815865213],
+                    [-122.41186823501056, 37.75428562870704],
+                    [-122.41186587289022, 37.75422026570509],
+                    [-122.41202177282358, 37.75421466316321],
+                    [-122.41202649706432, 37.75427815865213]
+                  ]
+                ]
+              }
+            }] //end of features
           },
-        },
-        "layout": {
-          "visibility": "visible",
-          "line-join": "round",
-          "line-cap": "round"
+        }, //end of source
+        'layout': {
+          'visibility': 'visible'
         },
         "paint": {
-          "line-color": "#2e9112",
-          "line-width": 7
+          "fill-color": "#2e9112",
+          "fill-opacity": 0.8
         }
-      }); // end of food-truck layer
+      }); //end of foodtruck layer
       map.addLayer({ //lowriders layer
         'id': 'Lowriders',
         'type': 'fill',
@@ -871,9 +907,18 @@ export class MapComponent implements OnInit {
       //all features above
     });
 
-    //start map layer toggle
+    //start map menu buttons
     var toggleableLayerIds = ['First-Aid Lost&Found', 'Beverages', 'Lowriders', 'Exhibitors', 'Sponsors', 'Food-trucks', 'DJ', 'Food-booths', 'Health&Wellness', 'Niñolandia', "Stages", 'Native & African Roots Center'];
-
+    //create recenter button
+    var recenterButton = document.createElement('button');
+    recenterButton.textContent = "Recenter Map";
+    recenterButton.className = 'btn btn-sm btn-block btn-dark font-weight-bold p-1 mx-1 my-2';;
+    recenterButton.onclick = function (e){
+      map.flyTo({center: [-122.414741, 37.758917]});
+    }
+    var layers = document.getElementById('menu');
+    layers.appendChild(recenterButton);
+    //create toggle buttons
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
 

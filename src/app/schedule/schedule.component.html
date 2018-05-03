@@ -6,10 +6,13 @@
     <h3 class="text-center">17th St Stage</h3>
   </div>
   <div class="row justify-content-center">
+    <img src = "assets/images/17street.jpg" class="img-fluid">
+  </div>
+  <div class="row justify-content-center">
     <div class="col-sm-6">
       <h4 class="text-center">Saturday, May 26th</h4>
       <app-schedule-event *ngFor="let event of day1_s17" [event]="event"></app-schedule-event>
-    </div>
+    </div> 
     <div class="col-sm-6">
       <h4 class="text-center">Sunday, May 27th</h4>
       <app-schedule-event *ngFor="let event of day2_s17" [event]="event"></app-schedule-event>
@@ -19,18 +22,24 @@
     <h3 class="text-center">20th St Stage</h3>
   </div>
   <div class="row justify-content-center">
+      <img src = "assets/images/20thstreet.jpg" class="img-fluid">
+    </div>
+  <div class="row justify-content-center">
     <div class="col-sm-6">
       <h4 class="text-center">Saturday, May 26th</h4>
       <app-schedule-event *ngFor="let event of day1_s20" [event]="event"></app-schedule-event>
     </div>
     <div class="col-sm-6">
-      <h4 class="text-center">Sunday, May 27th</h4>
+      <h4 class="text-center justify-content-center">Sunday, May 27th</h4>
       <app-schedule-event *ngFor="let event of day2_s20" [event]="event"></app-schedule-event>
     </div>
   </div>
   <div class="row justify-content-center">
     <h3 class="text-center">21st St Stage</h3>
   </div>
+  <div class="row justify-content-center">
+      <img src = "assets/images/21tstreet.png" class="img-fluid">
+    </div>
   <div class="row justify-content-center">
     <div class="col-sm-6">
       <h4 class="text-center">Saturday, May 26th</h4>
@@ -45,6 +54,9 @@
     <h3 class="text-center">22nd St Stage</h3>
   </div>
   <div class="row justify-content-center">
+      <img src = "assets/images/2" class="img-fluid">
+    </div>
+  <div class="row justify-content-center">
     <div class="col-sm-6">
       <h4 class="text-center">Saturday, May 26th</h4>
       <app-schedule-event *ngFor="let event of day1_s22" [event]="event"></app-schedule-event>
@@ -58,24 +70,33 @@
     <h1 class="text-center scheduleHD2">DJ Booths</h1>
   </div>
   <div class="row justify-content-center">
+      <img src ="assets/images/djphoto.jpg" class="img-fluid">
+  </div>
+  <div class="row justify-content-center">
     <h3 class="text-center">18th St DJ Booth</h3>
   </div>
-  <div class="col-sm-6">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
     <h4 class="text-center">Sunday, May 27th</h4>
     <app-schedule-event *ngFor="let event of day2_dj18" [event]="event"></app-schedule-event>
+    </div>
   </div>
   <div class="row justify-content-center">
     <h3 class="text-center">19th St DJ Booth</h3>
   </div>
+  <div class="row justify-content-center">
   <div class="col-sm-6">
     <h4 class="text-center">Sunday, May 27th</h4>
     <app-schedule-event *ngFor="let event of day2_dj19" [event]="event"></app-schedule-event>
   </div>
+</div>
   <div class="row justify-content-center">
     <h3 class="text-center">22th St DJ Booth</h3>
   </div>
+  <div class="row justify-content-center">
   <div class="col-sm-6">
     <h4 class="text-center">Sunday, May 27th</h4>
     <app-schedule-event *ngFor="let event of day2_dj22" [event]="event"></app-schedule-event>
   </div>
+ </div>
 </div>
