@@ -29,7 +29,7 @@ export class ScheduleEventComponent implements OnInit {
       `&details=${escape(detail.description)}` +
       `&location=${escape(detail.location)}` +
       `&dates=${date}${timeS}Z%2F${date}${timeE}Z&ctz=America/Los_Angeles`;
-    console.log(calendarLink);
+    // console.log(calendarLink);
     return calendarLink;
   }
   formatDateTime(detail) {
@@ -43,7 +43,7 @@ export class ScheduleEventComponent implements OnInit {
     }
     time = moment(time, "HH:mm:ss").add(7, 'hours').format("HHmmss");
     endTime = moment(endTime, "HH:mm:ss").add(7, 'hours').format("HHmmss");
-    console.log(time);
+    // console.log(time);
     return [date, time, endTime]; //test event times: should display 12pm~1:01pm, which is the same as the backend data entry; moment added 7 hours to convert from pacific time to GWT time which google calendar API expects
     //["20180527T","183500","191200"]
   }
