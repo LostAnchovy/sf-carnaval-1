@@ -11,6 +11,7 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 import { HomeComponent } from './home/home.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HealthComponent } from './health/health.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'directions', component: DirectionsComponent}, 
   { path: 'sponsors', component: SponsorsComponent},
   { path: 'artists', component: ArtistsComponent},
+  { path: 'health', component: HealthComponent},
 ];
 
 @NgModule({
