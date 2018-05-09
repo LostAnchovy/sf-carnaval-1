@@ -555,6 +555,61 @@ export class MapComponent implements OnInit {
           'fill-opacity': 0.8
         }
       }); // End Native and African American Roots Center
+      map.addLayer({ //Bike Valet
+        'id': 'Bike Valet',
+        'type': 'fill',
+        'source': {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              "coordinates": [
+                [
+                  [-122.41332651433143,37.76494632300832],
+                  [-122.41336726025722,37.76478838565204],
+                  [-122.41335543079654,37.76478734659854],
+                  [-122.41331337048479,37.76494528394703],
+                  [-122.41332651433143,37.76494632300832]
+                ]
+              ]
+            }
+          }
+        },
+        'layout': {},
+        'paint': {
+          'fill-color': '#1B1464',
+          'fill-opacity': 0.8
+        }
+      }); //End of Bike Valet
+      map.addLayer({ //Taxi and Ride Share
+        'id': 'Taxi and Ride Share',
+        'type': 'fill',
+        'source': {
+          'type': 'geojson',
+          'data': {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              "coordinates": [
+                [
+                  [-122.41481998182135,37.76015712465228],
+                  [-122.4147074469245,37.75891373278834],
+                  [-122.41465804136276,37.758915902776806],
+                  [-122.4147744191635,37.76015981926349],
+                  [-122.41481998182135,37.76015712465228]
+                ]
+              ]
+            }
+          }
+        },
+        'layout': {},
+        'paint': {
+          'fill-color': '#1B1464',
+          'fill-opacity': 0.8
+        }
+      }); // End of Taxi and Ride Share
+
       map.addLayer({ //beverages layer
         "id": "Beverages",
         "type": "line",
