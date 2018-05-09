@@ -200,7 +200,7 @@ export class MapComponent implements OnInit {
           'visibility': 'visible'
         },
         "paint": {
-          "fill-color": "#F8E401",
+          "fill-color": "#FFD700",
           "fill-opacity": 0.8
         }
       }); //end of exhibits layer
@@ -502,7 +502,7 @@ export class MapComponent implements OnInit {
         }
       }); // end of First-Aid & Lost and Found Layer
       map.addLayer({ //health and wellness pavilion
-        'id': 'Health&Wellness',
+        'id': 'Health & Wellness',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -578,12 +578,12 @@ export class MapComponent implements OnInit {
         },
         'layout': {},
         'paint': {
-          'fill-color': '#1B1464',
+          'fill-color': '#3e0953',
           'fill-opacity': 0.8
         }
       }); //End of Bike Valet
       map.addLayer({ //Taxi and Ride Share
-        'id': 'Taxi and Ride Share',
+        'id': 'Taxi & Ride Share',
         'type': 'fill',
         'source': {
           'type': 'geojson',
@@ -605,11 +605,10 @@ export class MapComponent implements OnInit {
         },
         'layout': {},
         'paint': {
-          'fill-color': '#1B1464',
+          'fill-color': '#2e9112',
           'fill-opacity': 0.8
         }
       }); // End of Taxi and Ride Share
-
       map.addLayer({ //beverages layer
         "id": "Beverages",
         "type": "line",
@@ -677,13 +676,13 @@ export class MapComponent implements OnInit {
           "line-cap": "butt"
         },
         "paint": {
-          "line-color": "#ff7033",
+          "line-color": "#008080",
           "line-width": 6,
           "line-opacity": 0.8
         }
       }); // end of beverages layer
-      map.addLayer({ //foodbooth layer
-        "id": "Food-booths",
+      map.addLayer({ //food layer
+        "id": "Food",
         "type": "fill",
         "source": {
           "type": "geojson",
@@ -692,7 +691,7 @@ export class MapComponent implements OnInit {
             "features": [{
               "geometry": {
                 "coordinates": [
-                  [// 17th to mariposa
+                  [// 17th to mariposa food booth
                     [-122.41306164394156, 37.76391073767827],
                     [-122.41297468419789, 37.76300517271194],
                     [-122.41284203508651, 37.76301196053748],
@@ -707,7 +706,7 @@ export class MapComponent implements OnInit {
             }, {
               "geometry": {
                 "coordinates": [
-                  [//19th to mistral
+                  [//19th to mistral food booth
                     [-122.41274357497461, 37.760578919935625],
                     [-122.41260571995002, 37.76058777891177],
                     [-122.41257805894591, 37.76030940756479],
@@ -722,7 +721,7 @@ export class MapComponent implements OnInit {
             }, {
               "geometry": {
                 "coordinates": [
-                  [// 20th to 21st
+                  [// 20th to 21st food booth
                     [-122.41249494911742, 37.75796677776613],
                     [-122.41236170046854, 37.75797480578177],
                     [-122.41233912679898, 37.75769557931005],
@@ -737,7 +736,7 @@ export class MapComponent implements OnInit {
             }, {
               "geometry": {
                 "coordinates": [
-                  [// 21st to 22nd
+                  [// 21st to 22nd food booth
                     [-122.41243956789005, 37.75736887430172],
                     [-122.41230658144588, 37.75737573218724],
                     [-122.41226510490726, 37.75695799854121],
@@ -749,6 +748,90 @@ export class MapComponent implements OnInit {
               },
               "type": "Feature",
               "properties": {}
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 17th to mariposa north food truck
+                    [-122.41307036069426, 37.764008227008304],
+                    [-122.41292987, 37.764015],
+                    [-122.41292116552954, 37.76391871331248],
+                    [-122.41306179815695, 37.763910760843586],
+                    [-122.41307036069426, 37.764008227008304]
+                  ]
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [//17th to mariposa south food truck
+                    [-122.41297468419789, 37.76300517271194],
+                    [-122.41284203508651, 37.76301196053748],
+                    [-122.41283549139519, 37.76294443262184],
+                    [-122.41296807483953, 37.76293673047803],
+                    [-122.41297468419789, 37.76300517271194]
+                  ]
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [//18th food truck
+                    [-122.41290519843695, 37.76225789383332],
+                    [-122.41277163834584, 37.76226497590356],
+                    [-122.41276577964632, 37.76219730456995],
+                    [-122.41289840558132, 37.762190082727344],
+                    [-122.41290519843695, 37.76225789383332]
+                  ]
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 21st north food truck
+                    [-122.41247371012359, 37.757631769983604],
+                    [-122.41231544806983, 37.757639240038515],
+                    [-122.41231308594949, 37.75757387703656],
+                    [-122.41246898588285, 37.75756827449469],
+                    [-122.41247371012359, 37.757631769983604]
+                  ]
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 21st south food truck
+                    [-122.41246426164152, 37.75752905677358],
+                    [-122.41230599958776, 37.75753652682849],
+                    [-122.41230363746742, 37.75747116382654],
+                    [-122.41245953740078, 37.75746556128466],
+                    [-122.41246426164152, 37.75752905677358]
+                  ]
+                ]
+              }
+            }, {
+              "type": "Feature",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [// 23rd food truck
+                    [-122.41202649706432, 37.75427815865213],
+                    [-122.41186823501056, 37.75428562870704],
+                    [-122.41186587289022, 37.75422026570509],
+                    [-122.41202177282358, 37.75421466316321],
+                    [-122.41202649706432, 37.75427815865213]
+                  ]
+                ]
+              }
             }]
           },
         },
@@ -759,7 +842,7 @@ export class MapComponent implements OnInit {
           "fill-color": "#00B1FC",
           "fill-opacity": 0.8
         }
-      }); //end of food-booth layer
+      }); //end of food layer
       map.addLayer({ // Dj Layer
         "id": "DJ",
         "type": "fill",
@@ -830,108 +913,6 @@ export class MapComponent implements OnInit {
           "fill-opacity": 0.8
         }
       }); //end of dj layer
-      map.addLayer({ // food truck Layer
-        "id": "Food-trucks",
-        "type": "fill",
-        "source": {
-          "type": "geojson",
-          "data": {
-            "type": "FeatureCollection",
-            "features": [{
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [// 17th to mariposa north
-                    [-122.41307036069426, 37.764008227008304],
-                    [-122.41292987, 37.764015],
-                    [-122.41292116552954, 37.76391871331248],
-                    [-122.41306179815695, 37.763910760843586],
-                    [-122.41307036069426, 37.764008227008304]
-                  ]
-                ]
-              }
-            }, {
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [//17th to mariposa south
-                    [-122.41297468419789, 37.76300517271194],
-                    [-122.41284203508651, 37.76301196053748],
-                    [-122.41283549139519, 37.76294443262184],
-                    [-122.41296807483953, 37.76293673047803],
-                    [-122.41297468419789, 37.76300517271194]
-                  ]
-                ]
-              }
-            }, {
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [//18th
-                    [-122.41290519843695, 37.76225789383332],
-                    [-122.41277163834584, 37.76226497590356],
-                    [-122.41276577964632, 37.76219730456995],
-                    [-122.41289840558132, 37.762190082727344],
-                    [-122.41290519843695, 37.76225789383332]
-                  ]
-                ]
-              }
-            }, {
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [// 21st north
-                    [-122.41247371012359, 37.757631769983604],
-                    [-122.41231544806983, 37.757639240038515],
-                    [-122.41231308594949, 37.75757387703656],
-                    [-122.41246898588285, 37.75756827449469],
-                    [-122.41247371012359, 37.757631769983604]
-                  ]
-                ]
-              }
-            }, {
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [// 21st south
-                    [-122.41246426164152, 37.75752905677358],
-                    [-122.41230599958776, 37.75753652682849],
-                    [-122.41230363746742, 37.75747116382654],
-                    [-122.41245953740078, 37.75746556128466],
-                    [-122.41246426164152, 37.75752905677358]
-                  ]
-                ]
-              }
-            }, {
-              "type": "Feature",
-              "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                  [// 23rd 
-                    [-122.41202649706432, 37.75427815865213],
-                    [-122.41186823501056, 37.75428562870704],
-                    [-122.41186587289022, 37.75422026570509],
-                    [-122.41202177282358, 37.75421466316321],
-                    [-122.41202649706432, 37.75427815865213]
-                  ]
-                ]
-              }
-            }] //end of features
-          },
-        }, //end of source
-        'layout': {
-          'visibility': 'visible'
-        },
-        "paint": {
-          "fill-color": "#2e9112",
-          "fill-opacity": 0.8
-        }
-      }); //end of foodtruck layer
       map.addLayer({ //lowriders layer
         'id': 'Lowriders',
         'type': 'fill',
@@ -955,7 +936,7 @@ export class MapComponent implements OnInit {
         },
         'layout': {},
         'paint': {
-          'fill-color': '#F0993F',
+          'fill-color': '#ff7b29',
           'fill-opacity': 0.8
         }
       }); // end of lowriders layer
@@ -963,11 +944,11 @@ export class MapComponent implements OnInit {
     });
 
     //start map menu buttons
-    var toggleableLayerIds = ['First-Aid Lost&Found', 'Beverages', 'Lowriders', 'Exhibitors', 'Sponsors', 'Food-trucks', 'DJ', 'Food-booths', 'Health&Wellness', 'Niñolandia', "Stages", 'Native & African Roots Center'];
+    var toggleableLayerIds = ['First-Aid Lost&Found', 'Lowriders', 'Exhibitors', 'Sponsors', 'Taxi & Ride Share', 'DJ', 'Food', 'Beverages', 'Health & Wellness', 'Niñolandia', "Stages", 'Bike Valet', 'Native & African Roots Center'];
     //create recenter button
     var recenterButton = document.createElement('button');
     recenterButton.textContent = "Recenter Map";
-    recenterButton.className = 'btn btn-sm btn-block btn-dark font-weight-bold p-1 mx-1 my-2';;
+    recenterButton.className = 'btn btn-sm btn-block btn-dark p-1 m-1';;
     recenterButton.onclick = function (e){
       map.flyTo({center: [-122.414741, 37.758917], zoom: 14});
     }
@@ -983,55 +964,59 @@ export class MapComponent implements OnInit {
 
       switch (link.textContent) {
         case "Exhibitors": {
-          link.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-exhibit p-1 m-1';
           break;
         }
         case "Sponsors": {
-          link.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-sponsor p-1 m-1';
           break;
         }
         case "Stages": {
-          link.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-stage p-1 m-1';
           break;
         }
-        case "Food-booths": {
-          link.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
+        case "Food": {
+          link.className = 'btn btn-sm btn-block btn-food p-1 m-1';
           break;
         }
-        case "Food-trucks": {
-          link.className = 'btn btn-sm btn-block btn-ftruck font-weight-bold p-1 m-1';
+        case "Taxi & Ride Share": {
+          link.className = 'btn btn-sm btn-block btn-taxi p-1 m-1';
           break;
         }
         case "Beverages": {
-          link.className = 'btn btn-sm btn-block btn-bev font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-bev p-1 m-1';
           break;
         }
         case "Niñolandia": {
-          link.className = 'btn btn-sm btn-block btn-nino font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-nino p-1 m-1';
           break;
         }
         case "Lowriders": {
-          link.className = 'btn btn-sm btn-block btn-low font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-low p-1 m-1';
           break;
         }
-        case "Health&Wellness": {
-          link.className = 'btn btn-sm btn-block btn-health font-weight-bold p-1 m-1';
+        case "Health & Wellness": {
+          link.className = 'btn btn-sm btn-block btn-health p-1 m-1';
           break;
         }
         case "Native & African Roots Center": {
-          link.className = 'btn btn-sm btn-block btn-native font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-native p-1 m-1';
           break;
         }
         case "DJ": {
-          link.className = 'btn btn-sm btn-block btn-dj font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-dj p-1 m-1';
           break;
         }
         case "First-Aid Lost&Found": {
-          link.className = 'btn btn-sm btn-block btn-firstAid font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-firstAid p-1 m-1';
+          break;
+        }
+        case "Bike Valet": {
+          link.className = 'btn btn-sm btn-block btn-bike p-1 m-1';
           break;
         }
         default: {
-          link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
+          link.className = 'btn btn-sm btn-block btn-primary p-1 m-1'
           break;
         }
       }
@@ -1048,55 +1033,59 @@ export class MapComponent implements OnInit {
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
           switch (clickedLayer) {
             case "Exhibitors": {
-              this.className = 'btn btn-sm btn-block btn-exhibit font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-exhibit p-1 m-1';
               break;
             }
             case "Sponsors": {
-              this.className = 'btn btn-sm btn-block btn-sponsor font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-sponsor p-1 m-1';
               break;
             }
             case "Stages": {
-              this.className = 'btn btn-sm btn-block btn-stage font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-stage p-1 m-1';
               break;
             }
-            case "Food-booths": {
-              this.className = 'btn btn-sm btn-block btn-fbooth font-weight-bold p-1 m-1';
+            case "Food": {
+              this.className = 'btn btn-sm btn-block btn-food p-1 m-1';
               break;
             }
-            case "Food-trucks": {
-              this.className = 'btn btn-sm btn-block btn-ftruck font-weight-bold p-1 m-1';
+            case "Taxi & Ride Share": {
+              this.className = 'btn btn-sm btn-block btn-taxi p-1 m-1';
               break;
             }
             case "Beverages": {
-              this.className = 'btn btn-sm btn-block btn-bev font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-bev p-1 m-1';
               break;
             }
             case "Niñolandia": {
-              this.className = 'btn btn-sm btn-block btn-nino font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-nino p-1 m-1';
               break;
             }
             case "Lowriders": {
-              this.className = 'btn btn-sm btn-block btn-low font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-low p-1 m-1';
               break;
             }
-            case "Health&Wellness": {
-              this.className = 'btn btn-sm btn-block btn-health font-weight-bold p-1 m-1';
+            case "Health & Wellness": {
+              this.className = 'btn btn-sm btn-block btn-health p-1 m-1';
               break;
             }
             case "Native & African Roots Center": {
-              this.className = 'btn btn-sm btn-block btn-native font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-native p-1 m-1';
               break;
             }
             case "DJ": {
-              this.className = 'btn btn-sm btn-block btn-dj font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-dj p-1 m-1';
               break;
             }
             case "First-Aid Lost&Found": {
-              this.className = 'btn btn-sm btn-block btn-firstAid font-weight-bold p-1 m-1';
+              this.className = 'btn btn-sm btn-block btn-firstAid p-1 m-1';
+              break;
+            }
+            case "Bike Valet": {
+              this.className = 'btn btn-sm btn-block btn-bike p-1 m-1';
               break;
             }
             default: {
-              link.className = 'btn btn-sm btn-block btn-primary font-weight-bold p-1 m-1'
+              link.className = 'btn btn-sm btn-block btn-primary p-1 m-1'
               break;
             }
           }
