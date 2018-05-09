@@ -914,7 +914,7 @@ export class MapComponent implements OnInit {
     recenterButton.textContent = "Recenter Map";
     recenterButton.className = 'btn btn-sm btn-block btn-dark font-weight-bold p-1 mx-1 my-2';;
     recenterButton.onclick = function (e){
-      map.flyTo({center: [-122.414741, 37.758917]});
+      map.flyTo({center: [-122.414741, 37.758917], zoom: 14});
     }
     var layers = document.getElementById('menu');
     layers.appendChild(recenterButton);
