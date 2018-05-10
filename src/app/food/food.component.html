@@ -5,39 +5,24 @@
   <div class="row">
     <div class="col-sm-6">
       <h5 *ngIf="b1718.length >= 1" class="text-center">Booths on 17th to 18th</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of b1718" [vendor]="vendor"></app-vendor-booth>
-      </div>
       <h5 *ngIf="b1920.length >= 1" class="text-center">Booths on 19th to 20th</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of b1920" [vendor]="vendor"></app-vendor-booth>
-      </div>
       <h5 *ngIf="b2021.length >= 1" class="text-center">Booths on 20th to 21st</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of b2021" [vendor]="vendor"></app-vendor-booth>
-      </div>
       <h5 *ngIf="b2122.length >= 1" class="text-center">Booths on 21st to 22nd</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of b2122" [vendor]="vendor"></app-vendor-booth>
-      </div>
     </div>
     <div class="col-sm-6">
       <h5 *ngIf="t1718.length >= 1" class="text-center">Trucks on 17th to 18th</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of t1718" [vendor]="vendor"></app-vendor-booth>
-      </div>
       <h5 *ngIf="t1819.length >= 1" class="text-center">Trucks on 18th and 19th</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of t1819" [vendor]="vendor"></app-vendor-booth>
-      </div>
       <h5 *ngIf="t21.length >= 1" class="text-center">Trucks on 21st</h5>
-      <div id="accordian">
         <app-vendor-booth *ngFor="let vendor of t21" [vendor]="vendor"></app-vendor-booth>
-      </div>
       <h5 *ngIf="t23.length >= 1" class="text-center">Trucks on 23rd</h5>
-      <div id="accordian">
+      <div>
         <app-vendor-booth *ngFor="let vendor of t23" [vendor]="vendor"></app-vendor-booth>
-      </div>
     </div>
   </div>
 </div>
