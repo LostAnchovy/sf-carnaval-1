@@ -4,40 +4,24 @@
   </div>
   <div class="row">
       <div class="col-sm-6">
-        <h5 *ngIf="e1718.length >= 1" class="text-center">Exhibits on 17th to 18th</h5>
-        <div id="accordian">
+        <h5 *ngIf="e1718.length >= 1" class="text-center">Exhibitors on 17th to 18th</h5>
           <app-vendor-booth *ngFor="let vendor of e1718" [vendor]="vendor"></app-vendor-booth>
-        </div>
-        <h5 *ngIf="e1819.length >= 1" class="text-center">Exhibits on 18th to 19th</h5>
-        <div id="accordian">
+        <h5 *ngIf="e1819.length >= 1" class="text-center">Exhibitors on 18th to 19th</h5>
           <app-vendor-booth *ngFor="let vendor of e1819" [vendor]="vendor"></app-vendor-booth>
-        </div>
-        <h5 *ngIf="e1920.length >= 1" class="text-center">Exhibits on 19th to 20th</h5>
-        <div id="accordian">
+        <h5 *ngIf="e1920.length >= 1" class="text-center">Exhibitors on 19th to 20th</h5>
           <app-vendor-booth *ngFor="let vendor of e1920" [vendor]="vendor"></app-vendor-booth>
-        </div>
-        <h5 *ngIf="e2021.length >= 1" class="text-center">Exhibits on 20th to 21st</h5>
-        <div id="accordian">
+        <h5 *ngIf="e2021.length >= 1" class="text-center">Exhibitors on 20th to 21st</h5>
           <app-vendor-booth *ngFor="let vendor of e2021" [vendor]="vendor"></app-vendor-booth>
-        </div>
       </div>
       <div class="col-sm-6">
         <h5 *ngIf="s1718.length >= 1" class="text-center">Sponsors on 17th to 18th</h5>
-        <div id="accordian">
           <app-vendor-booth *ngFor="let vendor of s1718" [vendor]="vendor"></app-vendor-booth>
-        </div>
         <h5 *ngIf="s1819.length >= 1" class="text-center">Sponsors on 18th and 19th</h5>
-        <div id="accordian">
           <app-vendor-booth *ngFor="let vendor of s1819" [vendor]="vendor"></app-vendor-booth>
-        </div>
         <h5 *ngIf="s1920.length >= 1" class="text-center">Sponsors on 19th to 20th</h5>
-        <div id="accordian">
           <app-vendor-booth *ngFor="let vendor of s1920" [vendor]="vendor"></app-vendor-booth>
-        </div>
         <h5 *ngIf="s2021.length >= 1" class="text-center">Sponsors on 20th to 21st</h5>
-        <div id="accordian">
           <app-vendor-booth *ngFor="let vendor of s2021" [vendor]="vendor"></app-vendor-booth>
-        </div>
       </div>
     </div>
   </div>
