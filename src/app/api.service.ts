@@ -10,6 +10,7 @@ export class ApiService {
   constructor(private _http: HttpClient) { }
 
   getFaqs() {
+    console.log(location.protocol);
     return this._http.get(`${apiUrl}/faqs`)
   }
 
