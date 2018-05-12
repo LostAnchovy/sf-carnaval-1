@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://35.166.67.156/api',
+  apiUrl: 'https://api.carnavalsanfrancisco.org/api',
   mapbox: {
     accessToken: 'pk.eyJ1IjoiY29keWVhdHdvcmxkIiwiYSI6ImNpamE3Zms2YzAwNWZ1bWx4bjJpZHhvZG0ifQ.alYL4sUGvCwHzyAQXB8RYQ'
   }
