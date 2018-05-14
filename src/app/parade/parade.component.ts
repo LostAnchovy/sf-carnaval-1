@@ -235,7 +235,7 @@ export class ParadeComponent implements OnInit {
 
       switch (link.textContent) {
         case "Staging": {
-          link.className = 'btn btn-sm btn-block btn-staging font-weight-bold p-1 m-1';
+          link.className = 'btn btn-sm btn-block btn-staging font-weight-bold p-1 m-1 mt-4';
           break;
         }
         case "Festival": {
