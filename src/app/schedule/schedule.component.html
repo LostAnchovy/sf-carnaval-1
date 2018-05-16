@@ -67,6 +67,22 @@
     </div>
   </div>
   <div class="row justify-content-center">
+    <h3 class="text-center">22nd St Stage</h3>
+  </div>
+  <div class="row justify-content-center">
+      <img src = "assets/images/Caravana.jpg" class="img-fluid">
+    </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <h4 class="text-center">Saturday, May 26th</h4>
+      <app-schedule-event *ngFor="let event of day1_s22" [event]="event"></app-schedule-event>
+    </div>
+    <div class="col-sm-6">
+      <h4 class="text-center">Sunday, May 27th</h4>
+      <app-schedule-event *ngFor="let event of day2_s22" [event]="event"></app-schedule-event>
+    </div>
+  </div>
+  <div class="row justify-content-center">
     <h3 class="text-center">23rd St Stage</h3>
   </div>
   <div class="row justify-content-center">
